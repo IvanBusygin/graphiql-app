@@ -1,9 +1,55 @@
+import { createBrowserRouter, RouterProvider, RouteObject, useRouteError } from 'react-router-dom';
+import { WelcomePage } from './pages/WelcomePage.tsx';
+import { MainPage } from './pages/MainPage.tsx';
+import { LoginPage } from './pages/LoginPage.tsx';
+import { NotFoundPage } from './pages/NotFoundPage.tsx';
+import Layout from './components/layout/Layout.tsx';
+
+const routeConfig: RouteObject[] = [
+  {
+    path: '/',
+    element: <Layout />,
+    children: [
+      {
+        errorElement: <ErrorBoundary />,
+        children: [
+          {
+            index: true,
+            element: <MainPage />,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    path: 'welcome',
+    element: <WelcomePage />,
+  },
+  {
+    path: 'login',
+    element: <LoginPage />,
+  },
+  {
+    path: '*',
+    element: <NotFoundPage />,
+  },
+];
+
+const router = createBrowserRouter(routeConfig);
+
 function App() {
   return (
-    <div className="min-h-screen grid place-content-center">
-      <h1 className="text-3xl font-bold text-green-500 underline">Hello world!</h1>
-    </div>
+    <>
+      <RouterProvider router={router} />
+    </>
   );
 }
 
 export default App;
+
+function ErrorBoundary() {
+  const error = useRouteError();
+  console.error(error);
+  // return <div>{error?.message}</div>;
+  return <div>ErrorBoundary</div>;
+}
