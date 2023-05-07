@@ -13,6 +13,6 @@ export function LoginPage() {
   }, [navigate, auth]);
 
   return (
-    <div className="bg-indigo-300 min-h-screen flex justify-center items-center">LoginPage</div>
+    <div className="flex min-h-screen items-center justify-center bg-indigo-300">LoginPage</div>
   );
 }

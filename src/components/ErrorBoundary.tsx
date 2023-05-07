@@ -25,8 +25,8 @@ class ErrorBoundary extends Component<IErrorBoundaryProps, IErrorBoundaryState> 
 
     if (hasError) {
       return (
-        <div className="min-h-screen flex justify-center items-center radial-blue">
-          <h2 className="text-2xl font-bold text-red-500 text-center">
+        <div className="radial-blue flex min-h-screen items-center justify-center">
+          <h2 className="text-center text-2xl font-bold text-red-500">
             A fatal error has occurred. Contact the technical support of the site
           </h2>
         </div>

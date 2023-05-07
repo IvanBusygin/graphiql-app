@@ -8,7 +8,7 @@ function Layout() {
   const isAuth = true;
 
   return isAuth ? (
-    <div className="h-screen flex flex-col">
+    <div className="flex h-screen flex-col">
       <Header />
 
       <div className="flex-grow bg-blue-300">
