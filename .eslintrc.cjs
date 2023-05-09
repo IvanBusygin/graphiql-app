@@ -31,6 +31,7 @@ module.exports = {
     'no-console': [isProd ? 'error' : 'off', { 'allow': ['error'] }],
     'no-debugger': isProd ? 'error' : 'off',
     'react-refresh/only-export-components': 'warn',
+    'prettier/prettier': 'warn',
     'eqeqeq': 2,
     'react/jsx-curly-brace-presence': 1,
     '@typescript-eslint/no-unused-vars': 1,
