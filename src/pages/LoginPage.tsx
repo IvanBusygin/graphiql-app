@@ -2,16 +2,24 @@ import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { auth, logInWithEmailAndPassword } from '../firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { BtnLoader } from '../components/BtnLoader';
 
 export function LoginPage() {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
   const [password, setPassword] = useState('');
-  const [user, loading] = useAuthState(auth);
+  const [user] = useAuthState(auth);
+
+  const handleClick = async () => {
+    setIsLoading(true);
+    await logInWithEmailAndPassword(email, password);
+    setIsLoading(false);
+  };
 
   useEffect(() => {
     if (user) navigate('/');
-  }, [user, loading, navigate]);
+  }, [user, navigate]);
 
   return (
     <>
@@ -21,7 +29,7 @@ export function LoginPage() {
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
             fill="currentColor"
-            className="absolute -right-4 -top-4 h-8 w-8 fill-blue-500 hover:fill-red-500"
+            className="absolute -right-4 -top-4 h-8 w-8 cursor-pointer fill-blue-700 transition-all duration-500 hover:rotate-90 hover:fill-red-500"
             onClick={() => navigate('/')}
           >
             <path
@@ -71,15 +79,16 @@ export function LoginPage() {
             />
           </div>
           <button
-            className="group relative mb-4 flex w-full justify-center rounded-md border border-transparent bg-blue-600 px-4 py-2 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-            onClick={() => logInWithEmailAndPassword(email, password)}
+            className="group relative mb-4 flex w-full justify-center rounded-md border border-transparent bg-blue-600 px-4 py-2 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:bg-blue-200"
+            onClick={handleClick}
+            disabled={isLoading}
           >
-            Login
+            {isLoading ? <BtnLoader /> : 'Login'}
           </button>
           <p className="text-gray-400">Don&#39;t have an account? </p>
           <Link
             to="/register"
-            className="text-blue-700"
+            className="text-blue-500 hover:text-blue-700"
           >
             Register now.
           </Link>

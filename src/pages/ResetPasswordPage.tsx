@@ -2,15 +2,24 @@ import { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate, Link } from 'react-router-dom';
 import { auth, sendPasswordReset } from '../firebase';
+import { BtnLoader } from '../components/BtnLoader';
 
 export function ResetPasswordPage() {
+  const [isLoading, setIsLoading] = useState(false);
   const [email, setEmail] = useState('');
-  const [user, loading] = useAuthState(auth);
+  const [user] = useAuthState(auth);
   const navigate = useNavigate();
+
+  const handleClick = async () => {
+    setIsLoading(true);
+    await sendPasswordReset(email);
+    setIsLoading(false);
+  };
+
   useEffect(() => {
-    if (loading) return;
     if (user) navigate('/dashboard');
-  }, [user, loading, navigate]);
+  }, [user, navigate]);
+
   return (
     <div className="relative flex h-screen w-screen items-center justify-center">
       <div className="flex w-full max-w-sm flex-col items-center rounded-md bg-gray-50 px-8 pb-8 pt-6 drop-shadow ">
@@ -18,7 +27,7 @@ export function ResetPasswordPage() {
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
           fill="currentColor"
-          className="absolute -right-4 -top-4 h-8 w-8 fill-blue-500 hover:fill-red-500"
+          className="absolute -right-4 -top-4 h-8 w-8 cursor-pointer fill-blue-700 transition-all duration-500 hover:rotate-90 hover:fill-red-500"
           onClick={() => navigate('/')}
         >
           <path
@@ -44,15 +53,16 @@ export function ResetPasswordPage() {
           />
         </div>
         <button
-          className="group relative mb-4 flex w-full justify-center rounded-md border border-transparent bg-blue-600 px-4 py-2 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-          onClick={() => sendPasswordReset(email)}
+          className="group relative mb-4 flex w-full justify-center rounded-md border border-transparent bg-blue-600 px-4 py-2 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:bg-blue-200"
+          onClick={handleClick}
+          disabled={isLoading}
         >
-          Send password reset email
+          {isLoading ? <BtnLoader /> : 'Send password reset email'}
         </button>
         <p className="text-gray-400">Don&#39;t have an account? </p>
         <Link
           to="/register"
-          className="text-blue-700"
+          className="text-blue-500 hover:text-blue-700"
         >
           Register now.
         </Link>
