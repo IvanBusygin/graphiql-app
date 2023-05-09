@@ -3,6 +3,8 @@ import { WelcomePage } from './pages/WelcomePage.tsx';
 import { MainPage } from './pages/MainPage.tsx';
 import { LoginPage } from './pages/LoginPage.tsx';
 import { NotFoundPage } from './pages/NotFoundPage.tsx';
+import { RegisterPage } from './pages/RegisterPage.tsx';
+import { ResetPasswordPage } from './pages/ResetPasswordPage.tsx';
 import Layout from './components/layout/Layout.tsx';
 
 const routeConfig: RouteObject[] = [
@@ -28,6 +30,14 @@ const routeConfig: RouteObject[] = [
   {
     path: 'login',
     element: <LoginPage />,
+  },
+  {
+    path: 'register',
+    element: <RegisterPage />,
+  },
+  {
+    path: 'reset',
+    element: <ResetPasswordPage />,
   },
   {
     path: '*',
