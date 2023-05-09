@@ -2,14 +2,15 @@ import { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import { auth, registerWithEmailAndPassword } from '../firebase';
-import { BtnLoader } from '../components/BtnLoader';
+import { ActionBtn } from '../UI/ActionBtn';
+import { CloseBtn } from '../UI/CloseBtn';
 
 export function RegisterPage() {
+  const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const [email, setEmail] = useState('');
+  const [user] = useAuthState(auth);
   const [password, setPassword] = useState('');
-  const [user, loading] = useAuthState(auth);
-  const navigate = useNavigate();
 
   const handleClick = async () => {
     setIsLoading(true);
@@ -18,25 +19,13 @@ export function RegisterPage() {
   };
 
   useEffect(() => {
-    if (loading) return;
     if (user) navigate('/');
-  }, [user, loading, navigate]);
+  }, [user, navigate]);
+
   return (
     <div className="flex h-screen w-screen items-center justify-center">
-      <div className="relative flex w-full max-w-sm flex-col items-center rounded-md bg-gray-50 px-8 pb-8 pt-6 drop-shadow">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="currentColor"
-          className="absolute -right-4 -top-4 h-8 w-8 cursor-pointer fill-blue-700 transition-all duration-500 hover:rotate-90 hover:fill-red-500"
-          onClick={() => navigate('/')}
-        >
-          <path
-            fillRule="evenodd"
-            d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-1.72 6.97a.75.75 0 10-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 101.06 1.06L12 13.06l1.72 1.72a.75.75 0 101.06-1.06L13.06 12l1.72-1.72a.75.75 0 10-1.06-1.06L12 10.94l-1.72-1.72z"
-            clipRule="evenodd"
-          />
-        </svg>
+      <div className="relative flex w-full max-w-xs flex-col items-center rounded-md bg-gray-50 px-8 pb-8 pt-6 drop-shadow">
+        <CloseBtn />
         <div className="mb-2 flex w-full flex-col">
           <label
             htmlFor="email"
@@ -71,13 +60,11 @@ export function RegisterPage() {
             placeholder="Enter your password"
           />
         </div>
-        <button
-          className="group relative mb-4 flex w-full justify-center rounded-md border border-transparent bg-blue-600 px-4 py-2 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:bg-blue-200"
-          onClick={handleClick}
-          disabled={isLoading}
-        >
-          {isLoading ? <BtnLoader /> : 'Create account'}
-        </button>
+        <ActionBtn
+          title="Create account"
+          isLoading={isLoading}
+          func={handleClick}
+        />
         <p className="text-gray-400">Already have an account?</p>
         <Link
           to="/login"

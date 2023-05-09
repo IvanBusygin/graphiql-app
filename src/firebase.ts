@@ -1,4 +1,4 @@
-import { initializeApp } from 'firebase/app';
+import { FirebaseError, initializeApp } from 'firebase/app';
 import {
   getAuth,
   signInWithEmailAndPassword,
@@ -25,8 +25,7 @@ const logInWithEmailAndPassword = async (email: string, password: string) => {
   try {
     await signInWithEmailAndPassword(auth, email, password);
   } catch (err) {
-    console.error(err);
-    alert(err);
+    alert((err as FirebaseError).code);
   }
 };
 
@@ -40,8 +39,7 @@ const registerWithEmailAndPassword = async (email: string, password: string) => 
       email,
     });
   } catch (err) {
-    console.error(err);
-    alert(err);
+    alert((err as FirebaseError).code);
   }
 };
 
@@ -50,8 +48,7 @@ const sendPasswordReset = async (email: string) => {
     await sendPasswordResetEmail(auth, email);
     alert('Password reset link sent!');
   } catch (err) {
-    console.error(err);
-    alert(err);
+    alert((err as FirebaseError).code);
   }
 };
 
