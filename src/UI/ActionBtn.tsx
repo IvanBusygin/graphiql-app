@@ -1,4 +1,4 @@
-export const ActionBtn = (props: { title: string; isLoading?: boolean; func?: VoidFunction }) => {
+export const ActionBtn = (props: { btnText: string; isLoading?: boolean; func?: VoidFunction }) => {
   const loader = (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -17,11 +17,12 @@ export const ActionBtn = (props: { title: string; isLoading?: boolean; func?: Vo
   );
   return (
     <button
-      className="group relative mb-4 flex  justify-center rounded-md border border-transparent bg-blue-600 px-4 py-2 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:bg-blue-200"
+      className="group relative flex justify-center rounded-md border border-transparent bg-blue-600 px-4 py-2 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:bg-blue-200"
       onClick={props.func}
       disabled={props.isLoading}
+      type="submit"
     >
-      {props.isLoading ? loader : props.title}
+      {props.isLoading ? loader : props.btnText}
     </button>
   );
 };

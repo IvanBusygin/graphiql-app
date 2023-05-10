@@ -21,11 +21,15 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
+const handleError = (err: FirebaseError) => {
+  throw err.code;
+};
+
 const logInWithEmailAndPassword = async (email: string, password: string) => {
   try {
     await signInWithEmailAndPassword(auth, email, password);
   } catch (err) {
-    alert((err as FirebaseError).code);
+    handleError(err as FirebaseError);
   }
 };
 
@@ -39,7 +43,7 @@ const registerWithEmailAndPassword = async (email: string, password: string) => 
       email,
     });
   } catch (err) {
-    alert((err as FirebaseError).code);
+    handleError(err as FirebaseError);
   }
 };
 
@@ -48,12 +52,16 @@ const sendPasswordReset = async (email: string) => {
     await sendPasswordResetEmail(auth, email);
     alert('Password reset link sent!');
   } catch (err) {
-    alert((err as FirebaseError).code);
+    handleError(err as FirebaseError);
   }
 };
 
 const logout = () => {
-  signOut(auth);
+  try {
+    signOut(auth);
+  } catch (err) {
+    handleError(err as FirebaseError);
+  }
 };
 
 export {
