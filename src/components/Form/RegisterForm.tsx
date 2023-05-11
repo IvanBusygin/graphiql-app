@@ -31,7 +31,7 @@ export const RegisterForm = () => {
       setIsLoading(true);
       await registerWithEmailAndPassword(data.email, data.password);
     } catch (err) {
-      console.log('error :>> ', err);
+      console.error('error :>> ', err);
     }
     setIsLoading(false);
   };

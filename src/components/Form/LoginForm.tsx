@@ -31,7 +31,7 @@ export const LoginForm = () => {
       setIsLoading(true);
       await logInWithEmailAndPassword(data.email, data.password);
     } catch (err) {
-      console.log('error :>> ', err);
+      console.error('error :>> ', err);
     }
     setIsLoading(false);
   };

@@ -30,7 +30,7 @@ export const ResetPasswordForm = () => {
       setIsLoading(true);
       await sendPasswordReset(data.email);
     } catch (err) {
-      console.log('error :>> ', err);
+      console.error('error :>> ', err);
     }
     setIsLoading(false);
   };
