@@ -1,14 +1,25 @@
 import { useState, ChangeEvent, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
-export default function LanguageSwitch() {
-  const storedLanguage = localStorage.getItem('i18nextLng');
-  const [language, setLanguage] = useState(storedLanguage || 'en');
+enum LanguageCode {
+  EN = 'en',
+  GE = 'ge',
+  RU = 'ru',
+}
 
-  const languages = [
-    { name: 'English', code: 'en' },
-    { name: 'ქართული', code: 'ge' },
-    { name: 'Русский', code: 'ru' },
+interface Language {
+  name: string;
+  code: LanguageCode;
+}
+
+export default function LanguageSwitch() {
+  const storedLanguage = localStorage.getItem('i18nextLng') as LanguageCode;
+  const [language, setLanguage] = useState(storedLanguage || LanguageCode.EN);
+
+  const languages: Language[] = [
+    { name: 'English', code: LanguageCode.EN },
+    { name: 'ქართული', code: LanguageCode.GE },
+    { name: 'Русский', code: LanguageCode.RU },
   ];
 
   const { i18n } = useTranslation();
@@ -20,7 +31,7 @@ export default function LanguageSwitch() {
   }, [storedLanguage, i18n]);
 
   const handleChangeLocale = (e: ChangeEvent<HTMLSelectElement>) => {
-    const lang = e.target.value;
+    const lang = e.target.value as LanguageCode;
     setLanguage(lang);
     i18n.changeLanguage(lang);
   };
