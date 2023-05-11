@@ -9,7 +9,7 @@ export function ResetPasswordPage() {
   const [user] = useAuthState(auth);
 
   useEffect(() => {
-    if (user) navigate('/dashboard');
+    if (user) navigate('/');
   }, [user, navigate]);
 
   return (

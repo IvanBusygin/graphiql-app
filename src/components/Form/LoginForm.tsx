@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import EmailInput from './EmailInput';
 import PasswordInput from './PasswordInput';
 import { logInWithEmailAndPassword } from '../../firebase';
+import { ModalMsg } from '../../UI/ModalMsg';
 
 type FormInputs = {
   email: string;
@@ -23,7 +24,7 @@ export const LoginForm = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<FormInputs>({ mode: 'onSubmit', reValidateMode: 'onSubmit' });
-
+  const [isModal, setIsModal] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
   const onSubmit = async (data: FormInputs) => {
@@ -32,12 +33,19 @@ export const LoginForm = () => {
       await logInWithEmailAndPassword(data.email, data.password);
     } catch (err) {
       console.error('error :>> ', err);
+      setIsModal(err as string);
     }
     setIsLoading(false);
   };
   return (
     <div className="relative flex w-full max-w-xs flex-col items-center rounded-md bg-gray-50 p-6 drop-shadow ">
-      <CloseBtn />
+      {!isModal && <CloseBtn />}
+      <ModalMsg
+        isOpen={isModal !== ''}
+        title="Ошибка авторизации:"
+        text={isModal}
+        setIsModal={setIsModal}
+      />
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="mb-2 flex w-full flex-col"

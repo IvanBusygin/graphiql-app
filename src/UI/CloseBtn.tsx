@@ -8,7 +8,7 @@ export const CloseBtn = () => {
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
       fill="currentColor"
-      className="absolute -right-4 -top-4 h-8 w-8 cursor-pointer fill-blue-700 transition-all duration-500 hover:rotate-90 hover:fill-red-500"
+      className="absolute -right-4 -top-4 z-30 h-8 w-8 cursor-pointer fill-blue-600 transition-all duration-100 hover:rotate-90 hover:fill-red-500"
       onClick={() => navigate('/')}
     >
       <path
