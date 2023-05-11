@@ -10,7 +10,7 @@ export function Header() {
     <div className="flex h-10 w-full items-center justify-end bg-emerald-300">
       {user ? (
         <>
-          <div className="leading-3 text-gray-600">{user?.email}</div>
+          <div className="leading-3 text-gray-600">{user.email}</div>
           <SignoutBtn />
         </>
       ) : (
