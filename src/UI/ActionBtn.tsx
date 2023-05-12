@@ -8,7 +8,7 @@ export const ActionBtn = (props: { btnText: string; isLoading?: boolean; func?: 
       disabled={props.isLoading}
       type="submit"
     >
-      {props.isLoading ? <BtnLoader /> : props.btnText}
+      {props.isLoading ? <BtnLoader className="h-6 w-6 animate-spin" /> : props.btnText}
     </button>
   );
 };
