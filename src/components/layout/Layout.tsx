@@ -11,7 +11,7 @@ function Layout() {
     <div className="flex h-screen flex-col">
       <Header />
 
-      <div className="flex-grow bg-blue-300">
+      <div className="h-full  bg-blue-300">
         <Outlet />
       </div>
 

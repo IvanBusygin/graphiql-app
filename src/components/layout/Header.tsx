@@ -10,7 +10,7 @@ export function Header() {
   const { t } = useTranslation();
 
   return (
-    <div className="grid h-10 w-full grid-cols-2  bg-emerald-300">
+    <div className="grid h-[50px] w-full grid-cols-2 bg-emerald-300">
       <div className="ml-4 flex items-center justify-start gap-4">
         <LanguageSwitch />
         <p>{t('test on header')}</p>
