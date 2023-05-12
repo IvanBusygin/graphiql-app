@@ -7,7 +7,7 @@ export const CloseBtn = () => {
   return (
     <button
       onClick={() => navigate('/')}
-      className="absolute -right-5 -top-5 z-30"
+      className="absolute -right-5 -top-5 z-30 drop-shadow-md"
       tabIndex={10}
     >
       <BtnClose className="h-10 w-10 cursor-pointer transition-all duration-300 hover:rotate-90 hover:fill-[#eb2525]" />

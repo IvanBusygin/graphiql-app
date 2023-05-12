@@ -1,32 +1,49 @@
-import { InputProps } from './LoginForm';
+import { EmailInputProps } from './interfaces';
 
-const EmailInput = ({ register, errors }: InputProps) => {
+const EmailInput = ({ register, errors }: EmailInputProps) => {
   const validateEmail = (value: string) => {
     if (value.length === 0) {
-      return `Email field must not be empty`;
+      console.log('object :>> ');
+      return `Please enter your email`;
+    }
+    if (value.length < 10) {
+      return `Email is too short`;
     }
     if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]{2,}\.[A-Z]{2,}$/i.test(value)) {
       return 'Invalid email';
     }
-    if (value.length < 6) {
-      return `Email can not be so short`;
-    }
     return true;
   };
   return (
-    <div className="relative mb-2 flex w-full flex-col">
+    <div className="relative mb-6 flex w-full flex-col">
+      <label
+        htmlFor="email"
+        className="mb-1"
+      >
+        Email
+      </label>
       <input
-        title="любой валидный email, можно не существующий"
+        title="Любой валидный email, можно не существующий"
         id="email"
         type="text"
         tabIndex={1}
-        placeholder="Enter your e-mail"
-        className="mb-2 w-full rounded-md p-2 outline outline-1 outline-gray-200 hover:before:content-[attr(title)] focus:outline-none focus:ring-2 focus:ring-blue-200"
+        placeholder="enter your e-mail"
+        className={`w-full rounded-md p-2 placeholder:text-gray-400 focus:outline-none focus:ring-2 ${
+          errors.email
+            ? 'outline outline-1 outline-red-400 focus:ring-red-400'
+            : 'outline outline-1 outline-gray-300 focus:ring-blue-200'
+        } hover:before:content-[attr(title)]`}
         {...register('email', {
           validate: validateEmail,
         })}
       />
-      {errors.email && <p className="w-full text-center text-red-500">{errors.email.message}</p>}
+      <div
+        className={`absolute -bottom-6 text-center transition-all duration-300 ${
+          errors.email ? 'opacity-1 -translate-y-0' : '-translate-y-1/4 opacity-0 delay-1000'
+        }`}
+      >
+        <p className="text-red-500">{errors.email ? errors.email.message : ''}</p>
+      </div>
     </div>
   );
 };

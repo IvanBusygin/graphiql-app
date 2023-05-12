@@ -1,4 +1,4 @@
-import { FieldErrors, UseFormRegister, useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import { ActionBtn } from '../../UI/ActionBtn';
 import { useState } from 'react';
 import { CloseBtn } from '../../UI/CloseBtn';
@@ -7,16 +7,7 @@ import EmailInput from './EmailInput';
 import PasswordInput from './PasswordInput';
 import { registerWithEmailAndPassword } from '../../firebase';
 import { ModalMsg } from '../../UI/ModalMsg';
-
-type FormInputs = {
-  email: string;
-  password: string;
-};
-
-export interface InputProps {
-  register: UseFormRegister<FormInputs>;
-  errors: FieldErrors<FormInputs>;
-}
+import { FormInputs } from './interfaces';
 
 export const RegisterForm = () => {
   const {
@@ -38,7 +29,7 @@ export const RegisterForm = () => {
     setIsLoading(false);
   };
   return (
-    <div className="relative flex w-full max-w-xs flex-col items-center rounded-md bg-gray-50 p-6 drop-shadow">
+    <div className="border-1 relative flex w-full max-w-xs flex-col items-center rounded-xl border-gray-100 bg-gray-50 p-8 drop-shadow-lg">
       {!isModal && <CloseBtn />}
       <ModalMsg
         isOpen={isModal !== ''}
@@ -48,24 +39,12 @@ export const RegisterForm = () => {
       />
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="mb-2 flex w-full flex-col"
+        className="flex w-full flex-col"
       >
-        <label
-          htmlFor="email"
-          className="h-6"
-        >
-          Email
-        </label>
         <EmailInput
           register={register}
           errors={errors}
         />
-        <label
-          htmlFor="password"
-          className="h-6"
-        >
-          Password
-        </label>
         <PasswordInput
           register={register}
           errors={errors}
