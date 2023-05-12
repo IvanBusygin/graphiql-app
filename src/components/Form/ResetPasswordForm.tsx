@@ -76,6 +76,7 @@ export const ResetPasswordForm = () => {
       <Link
         to="/login"
         className="text-blue-500 hover:text-blue-700"
+        tabIndex={5}
       >
         Login
       </Link>

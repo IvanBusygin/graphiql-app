@@ -19,6 +19,7 @@ const EmailInput = ({ register, errors }: InputProps) => {
         title="любой валидный email, можно не существующий"
         id="email"
         type="text"
+        tabIndex={1}
         placeholder="Enter your e-mail"
         className="mb-2 w-full rounded-md p-2 outline outline-1 outline-gray-200 hover:before:content-[attr(title)] focus:outline-none focus:ring-2 focus:ring-blue-200"
         {...register('email', {

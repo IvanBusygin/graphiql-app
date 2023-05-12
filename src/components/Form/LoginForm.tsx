@@ -71,6 +71,7 @@ export const LoginForm = () => {
             <Link
               to="/reset"
               className="justify-self-center text-blue-500 hover:text-blue-700"
+              tabIndex={4}
             >
               Forgot?
             </Link>
@@ -87,6 +88,7 @@ export const LoginForm = () => {
       </form>
       <p className="text-gray-400">Don&apos;t have account?</p>
       <Link
+        tabIndex={5}
         to="/register"
         className="text-blue-500 hover:text-blue-700"
       >

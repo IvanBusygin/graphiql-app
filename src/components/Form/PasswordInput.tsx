@@ -25,6 +25,7 @@ const PasswordInput = ({ register, errors }: InputProps) => {
       <input
         id="password"
         type="password"
+        tabIndex={2}
         placeholder="Enter your password"
         className=" mb-2 w-full rounded-md p-2 outline outline-1 outline-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-200"
         {...register('password', {

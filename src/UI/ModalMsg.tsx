@@ -18,6 +18,8 @@ export const ModalMsg = ({ setIsModal, isOpen, title, text }: ModalProps) => {
       {text && <p className="p-2 text-center text-lg ">{text}</p>}
       <button
         onClick={() => setIsModal('')}
+        tabIndex={0}
+        disabled={!isOpen}
         className="m-4 rounded-xl bg-blue-700 px-4 py-2 text-white"
       >
         OK!
