@@ -23,7 +23,6 @@ export const ResetPasswordForm = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<FormInputs>({ mode: 'onSubmit', reValidateMode: 'onSubmit' });
-  // const [isModal, setIsModal] = useState('');
   const [isError, setIsError] = useState('');
   const [isMsg, setIsMsg] = useState('');
   const [isLoading, setIsLoading] = useState(false);
