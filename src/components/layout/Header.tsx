@@ -2,12 +2,17 @@ import { auth } from '../../firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { SignoutBtn } from '../../UI/SignoutBtn';
 import { Link } from 'react-router-dom';
+import LanguageSwitch from '../LanguageSwitch';
+import { useTranslation } from 'react-i18next';
 
 export function Header() {
   const [user] = useAuthState(auth);
+  const { t } = useTranslation();
 
   return (
     <div className="flex h-10 w-full items-center justify-end bg-emerald-300">
+      <p>{t('test on header')}</p>
+      <LanguageSwitch />
       {user ? (
         <>
           <div className="leading-3 text-gray-600">{user.email}</div>
