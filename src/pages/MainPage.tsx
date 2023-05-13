@@ -1,6 +1,20 @@
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
+import { auth } from '../firebase';
+
 export const MainPage = () => {
+  const navigate = useNavigate();
+  const [user] = useAuthState(auth);
+
+  useEffect(() => {
+    if (!user) {
+      navigate('/');
+    }
+  }, [user, navigate]);
+
   return (
-    <div className="grid h-full w-full grid-cols-[_50px_minmax(270px,_1fr)] grid-rows-1 gap-4 bg-[#212A3B] p-4 text-center text-white">
+    <div className="grid h-full w-full grid-cols-[_50px_minmax(270px,_1fr)] grid-rows-[1fr,_50px] gap-x-4 bg-[#212A3B] p-4 text-center text-white">
       <aside className="flex flex-col justify-between py-2">
         <div className="top-btns flex flex-col gap-2">
           <button className="m-[5px] h-[40px] w-[40px] rounded-lg border hover:bg-[#313949]">
