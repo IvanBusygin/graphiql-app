@@ -3,7 +3,6 @@ import { EmailInputProps } from './interfaces';
 const EmailInput = ({ register, errors }: EmailInputProps) => {
   const validateEmail = (value: string) => {
     if (value.length === 0) {
-      console.log('object :>> ');
       return `Please enter your email`;
     }
     if (value.length < 10) {
