@@ -18,7 +18,7 @@ export const Footer: React.FC = () => {
           height="52"
         />
       </a>
-      <span className="mx-4">2023</span>
+      <span className="mx-4 select-none">2023</span>
       <a
         href="https://rs.school/react/"
         className="mx-4"

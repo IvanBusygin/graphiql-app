@@ -17,31 +17,31 @@ const routeConfig: RouteObject[] = [
         children: [
           {
             index: true,
+            element: <WelcomePage />,
+          },
+          {
+            path: 'graphiql',
             element: <MainPage />,
+          },
+          {
+            path: 'login',
+            element: <LoginPage />,
+          },
+          {
+            path: 'register',
+            element: <RegisterPage />,
+          },
+          {
+            path: 'reset',
+            element: <ResetPasswordPage />,
+          },
+          {
+            path: '*',
+            element: <NotFoundPage />,
           },
         ],
       },
     ],
-  },
-  {
-    path: 'welcome',
-    element: <WelcomePage />,
-  },
-  {
-    path: 'login',
-    element: <LoginPage />,
-  },
-  {
-    path: 'register',
-    element: <RegisterPage />,
-  },
-  {
-    path: 'reset',
-    element: <ResetPasswordPage />,
-  },
-  {
-    path: '*',
-    element: <NotFoundPage />,
   },
 ];
 

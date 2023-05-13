@@ -10,10 +10,15 @@ export function Header() {
   const { t } = useTranslation();
 
   return (
-    <div className="grid h-[50px] w-full grid-cols-2 bg-emerald-300">
+    <header className="z-10 grid h-[] w-full  grid-cols-2 bg-emerald-300">
       <div className="ml-4 flex items-center justify-start gap-4">
         <LanguageSwitch />
-        <p>{t('test on header')}</p>
+        <Link
+          to="/"
+          className="hover: flex cursor-pointer p-2 hover:bg-blue-100"
+        >
+          {t('test on header')}{' '}
+        </Link>
       </div>
       <div className="flex items-center justify-end gap-4">
         {user ? (
@@ -38,6 +43,6 @@ export function Header() {
           </>
         )}
       </div>
-    </div>
+    </header>
   );
 }
