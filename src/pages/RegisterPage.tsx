@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
 import { auth } from '../firebase';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import { LoginForm } from '../components/Form/LoginForm';
+import { RegisterForm } from '../components/Form/RegisterForm';
 
-export function LoginPage() {
+export function RegisterPage() {
   const navigate = useNavigate();
   const [user] = useAuthState(auth);
 
@@ -14,7 +14,7 @@ export function LoginPage() {
 
   return (
     <div className="flex h-screen w-screen items-center justify-center">
-      <LoginForm />
+      <RegisterForm />
     </div>
   );
 }
