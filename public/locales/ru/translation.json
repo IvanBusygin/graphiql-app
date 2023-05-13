@@ -1,3 +1,5 @@
 {
-  "test on header": "Хедер"
+  "test on header": "Хедер",
+  "login": "Войти",
+  "register": "Регистрация"
 }

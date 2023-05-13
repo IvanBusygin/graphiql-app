@@ -10,30 +10,34 @@ export function Header() {
   const { t } = useTranslation();
 
   return (
-    <div className="flex h-10 w-full items-center justify-end bg-emerald-300">
-      <p>{t('test on header')}</p>
-      <LanguageSwitch />
-      {user ? (
-        <>
-          <div className="leading-3 text-gray-600">{user.email}</div>
-          <SignoutBtn />
-        </>
-      ) : (
-        <>
-          <Link
-            to="/register"
-            className="hover: flex cursor-pointer p-2 hover:bg-blue-100"
-          >
-            Register
-          </Link>
-          <Link
-            to="/login"
-            className="hover: flex cursor-pointer p-2 hover:bg-blue-100"
-          >
-            Log In
-          </Link>
-        </>
-      )}
+    <div className="grid h-10 w-full grid-cols-2  bg-emerald-300">
+      <div className="ml-4 flex items-center justify-start gap-4">
+        <LanguageSwitch />
+        <p>{t('test on header')}</p>
+      </div>
+      <div className="flex items-center justify-end gap-4">
+        {user ? (
+          <>
+            <div className="leading-3 text-gray-600">{user.email}</div>
+            <SignoutBtn />
+          </>
+        ) : (
+          <>
+            <Link
+              to="/register"
+              className="hover: flex cursor-pointer p-2 hover:bg-blue-100"
+            >
+              {t('register')}
+            </Link>
+            <Link
+              to="/login"
+              className="hover: flex cursor-pointer p-2 hover:bg-blue-100"
+            >
+              {t('login')}
+            </Link>
+          </>
+        )}
+      </div>
     </div>
   );
 }

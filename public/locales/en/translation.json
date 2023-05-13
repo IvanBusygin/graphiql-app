@@ -1,3 +1,5 @@
 {
-  "test on header": "Header"
+  "test on header": "Header",
+  "login": "Log in",
+  "register": "Register"
 }
