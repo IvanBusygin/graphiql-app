@@ -5,39 +5,51 @@ import { LoginPage } from './pages/LoginPage.tsx';
 import { NotFoundPage } from './pages/NotFoundPage.tsx';
 import { RegisterPage } from './pages/RegisterPage.tsx';
 import { ResetPasswordPage } from './pages/ResetPasswordPage.tsx';
-import Layout from './components/layout/Layout.tsx';
+import LayoutMain from './components/layout/LayoutMain.tsx';
+import LayoutIsAuth from './components/layout/LayoutIsAuth.tsx';
+import LayoutNotAuth from './components/layout/LayoutNotAuth.tsx';
 
 const routeConfig: RouteObject[] = [
   {
     path: '/',
-    element: <Layout />,
+    element: <LayoutMain />,
     children: [
       {
         errorElement: <ErrorBoundary />,
         children: [
           {
             index: true,
-            element: <MainPage />,
+            element: <WelcomePage />,
+          },
+          {
+            element: <LayoutIsAuth />,
+            children: [
+              {
+                path: 'main',
+                element: <MainPage />,
+              },
+            ],
+          },
+          {
+            element: <LayoutNotAuth />,
+            children: [
+              {
+                path: 'login',
+                element: <LoginPage />,
+              },
+              {
+                path: 'register',
+                element: <RegisterPage />,
+              },
+              {
+                path: 'reset',
+                element: <ResetPasswordPage />,
+              },
+            ],
           },
         ],
       },
     ],
-  },
-  {
-    path: 'welcome',
-    element: <WelcomePage />,
-  },
-  {
-    path: 'login',
-    element: <LoginPage />,
-  },
-  {
-    path: 'register',
-    element: <RegisterPage />,
-  },
-  {
-    path: 'reset',
-    element: <ResetPasswordPage />,
   },
   {
     path: '*',
