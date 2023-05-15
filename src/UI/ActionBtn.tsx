@@ -1,4 +1,4 @@
-import { ReactComponent as BtnLoader } from '../assets/Buttons/BtnLoader.svg';
+import { ReactComponent as Refresh } from '../assets/Buttons/Refresh.svg';
 
 export const ActionBtn = (props: { btnText: string; isLoading?: boolean; func?: VoidFunction }) => {
   return (
@@ -9,7 +9,7 @@ export const ActionBtn = (props: { btnText: string; isLoading?: boolean; func?: 
       tabIndex={3}
       type="submit"
     >
-      {props.isLoading ? <BtnLoader className="h-6 w-6 animate-spin" /> : props.btnText}
+      {props.isLoading ? <Refresh className="h-6 w-6 animate-spin" /> : props.btnText}
     </button>
   );
 };

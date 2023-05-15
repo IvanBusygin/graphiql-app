@@ -10,7 +10,7 @@ i18n
   .init({
     fallbackLng: 'en',
     detection: {
-      order: ['path', 'localStorage', 'htmlTag', 'cookie'],
+      order: ['htmlTag', 'localStorage', 'path', 'cookie'],
       caches: ['localStorage', 'cookie'],
     },
   });
