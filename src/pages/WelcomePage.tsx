@@ -6,7 +6,7 @@ export function WelcomePage() {
   const [user] = useAuthState(auth);
 
   return (
-    <div className="radial-blue flex min-h-full flex-col items-center justify-center">
+    <div className="radial-blue flex h-full w-full flex-col items-center justify-center">
       <h1 className="m-2 text-center text-3xl font-bold text-green-500 underline">Hello world!</h1>
       {!user ? (
         <>

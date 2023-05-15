@@ -10,7 +10,7 @@ export function RegisterPage() {
 
   useEffect(() => {
     if (user) {
-      navigate('/');
+      navigate('/graphiql');
     }
   }, [user, navigate]);
 

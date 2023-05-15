@@ -6,11 +6,11 @@ import LanguageSwitch from '../LanguageSwitch';
 import { useTranslation } from 'react-i18next';
 
 export function Header() {
-  const [user] = useAuthState(auth);
+  const [user, loading] = useAuthState(auth);
   const { t } = useTranslation();
 
   return (
-    <header className="z-10 grid h-[] w-full  grid-cols-2 bg-emerald-300">
+    <header className="z-10 grid w-full grid-cols-2 bg-emerald-300">
       <div className="ml-4 flex items-center justify-start gap-4">
         <LanguageSwitch />
         <Link
@@ -21,7 +21,9 @@ export function Header() {
         </Link>
       </div>
       <div className="flex items-center justify-end gap-4">
-        {user ? (
+        {loading ? (
+          ''
+        ) : user ? (
           <>
             <div className="leading-3 text-gray-600">{user.email}</div>
             <SignoutBtn />
