@@ -38,6 +38,7 @@ export default function LanguageSwitch() {
 
   return (
     <select
+      className="text-black"
       onChange={handleChangeLocale}
       value={language}
     >
