@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import cls from 'clsx';
 import { auth } from '../../firebase';
 import { SignoutBtn } from '../../UI/SignoutBtn';
 import LanguageSwitch from '../LanguageSwitch';
@@ -29,9 +30,12 @@ export function Header() {
 
   return (
     <header
-      className={`max-h-17 flex w-full justify-between max550:flex-col max550:items-center
-    ${isSticky ? 'sticky top-0 bg-darkRed text-white' : 'bg-transparent p-4'}
-    transition-all duration-700`}
+      className={cls(
+        'max-h-17 flex w-full justify-between max550:flex-col max550:items-center',
+        { 'sticky top-0 bg-darkRed p-1 text-white ': isSticky },
+        { 'bg-transparent p-3': !isSticky },
+        'transition-all duration-700',
+      )}
     >
       <div className="ml-4 flex items-center justify-start gap-4">
         <h1 className="text-xl font-bold text-blue-900">GraphiQL-APP</h1>
