@@ -12,6 +12,10 @@ export default {
         max550: { max: '550px' },
       },
     },
+    screens: {
+      toosmall: { min: '0px', max: '319px' },
+      xs: { min: '320px', max: '640px' },
+    },
   },
   plugins: [
     plugin(({ addBase }) => {

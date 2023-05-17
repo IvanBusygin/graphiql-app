@@ -15,7 +15,7 @@ function EditorTools() {
 
   return (
     <div
-      className={`grid grid-cols-1 flex-col border-t border-[#424A58] transition-all duration-500 ${
+      className={`grid grid-cols-1 flex-col border-t border-[#424A58] transition-all duration-100 ${
         isOpen ? 'h-[300px]' : 'h-[50px]'
       }`}
     >
