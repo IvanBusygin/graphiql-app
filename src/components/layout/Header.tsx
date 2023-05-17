@@ -38,7 +38,9 @@ export function Header() {
       )}
     >
       <div className="ml-4 flex items-center justify-start gap-4">
-        <h1 className="text-xl font-bold text-blue-900">GraphiQL-APP</h1>
+        <h1 className="select-none text-xl font-bold text-blue-900">
+          <Link to="/">GraphiQL-APP</Link>{' '}
+        </h1>
         <LanguageSwitch />
       </div>
       <div className="flex items-center justify-end gap-4">

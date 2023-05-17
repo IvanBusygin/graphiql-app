@@ -1,13 +1,15 @@
 import { Link } from 'react-router-dom';
 import { auth } from '../firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { useTranslation } from 'react-i18next';
 
 export function WelcomePage() {
   const [user] = useAuthState(auth);
+  const { t } = useTranslation();
 
   return (
-    <div className="radial-blue flex h-full w-full flex-col items-center justify-center">
-      <h1 className="m-2 text-center text-3xl font-bold text-green-500 underline">Hello world!</h1>
+    <div className="radial-blue flex h-screen w-full flex-col items-center justify-center">
+      <h1 className="m-2 text-center text-3xl font-bold text-green-500 underline">{t('test')}</h1>
       {!user ? (
         <>
           <p className="m-2">To use GraphiQL you need to log in.</p>
@@ -25,7 +27,7 @@ export function WelcomePage() {
         <>
           <p>Now you can go to the</p>
           <Link
-            to="/graphiql"
+            to="/main"
             className="text-blue-700"
           >
             GraphiQL page
