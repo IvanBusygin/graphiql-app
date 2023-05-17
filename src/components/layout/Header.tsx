@@ -31,14 +31,14 @@ export function Header() {
   return (
     <header
       className={cls(
-        'max-h-17 flex w-full justify-between max550:flex-col max550:items-center',
-        { 'sticky top-0 bg-darkRed p-1 text-white ': isSticky },
+        'flex h-14 w-full justify-between max550:flex-col max550:items-center',
+        { 'sticky top-0 bg-darkRed p-0 text-white ': isSticky },
         { 'bg-transparent p-3': !isSticky },
         'transition-all duration-700',
       )}
     >
       <div className="ml-4 flex items-center justify-start gap-4">
-        <h1 className="select-none text-xl font-bold text-blue-900">
+        <h1 className="select-none p-1 text-xl font-bold text-blue-900">
           <Link to="/">GraphiQL-APP</Link>{' '}
         </h1>
         <LanguageSwitch />
@@ -48,7 +48,7 @@ export function Header() {
           ''
         ) : user ? (
           <>
-            <div className=" text-gray-600">{user.email}</div>
+            <div className="leading-3 text-gray-600">{user.email}</div>
             <SignoutBtn />
           </>
         ) : (
