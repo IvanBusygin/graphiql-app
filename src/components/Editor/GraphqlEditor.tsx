@@ -7,8 +7,7 @@ import { ReactComponent as Refresh } from '../../assets/Buttons/Refresh.svg';
 import AsideMenu from './AsideMenu';
 
 const url = 'https://rickandmortyapi.com/graphql';
-const testQuery = `
-query
+const testQuery = `query
   {
     characters(page:1,filter:{name:"summer"}){
       info{count}
@@ -26,11 +25,9 @@ function GraphqlEditor(): React.ReactElement {
     if (btn === 'Exec') {
       getData(inputValue);
     }
-    console.log('clicked: ', btn);
   };
 
   async function getData(query: string) {
-    console.log('inputValue :>> ', inputValue);
     setIsLoading(true);
     const timeStart = Date.now();
     await fetch(url, {
@@ -47,8 +44,11 @@ function GraphqlEditor(): React.ReactElement {
         const timeEnd = Date.now();
         setFetchTime(timeEnd - timeStart);
         setResult(JSON.stringify(result));
-        setIsLoading(false);
-      });
+      })
+      .catch((e: Error) => {
+        setResult(e.message);
+      })
+      .finally(() => setIsLoading(false));
   }
 
   return (
