@@ -3,16 +3,17 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 
 import { auth } from '../../firebase';
 
-function LayoutNotAuth() {
+function LayoutAuth() {
   const [user] = useAuthState(auth);
 
-  if (user)
+  if (!user)
     return (
       <Navigate
-        to="/main"
+        to="/"
         replace
       />
     );
+
   return (
     <div className="flex-grow bg-blue-300">
       <Outlet />
@@ -20,4 +21,4 @@ function LayoutNotAuth() {
   );
 }
 
-export default LayoutNotAuth;
+export default LayoutAuth;

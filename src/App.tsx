@@ -6,7 +6,7 @@ import { NotFoundPage } from './pages/NotFoundPage.tsx';
 import { RegisterPage } from './pages/RegisterPage.tsx';
 import { ResetPasswordPage } from './pages/ResetPasswordPage.tsx';
 import LayoutMain from './components/layout/LayoutMain.tsx';
-import LayoutIsAuth from './components/layout/LayoutIsAuth.tsx';
+import LayoutAuth from './components/layout/LayoutAuth.tsx';
 import LayoutNotAuth from './components/layout/LayoutNotAuth.tsx';
 
 const routeConfig: RouteObject[] = [
@@ -22,7 +22,7 @@ const routeConfig: RouteObject[] = [
             element: <WelcomePage />,
           },
           {
-            element: <LayoutIsAuth />,
+            element: <LayoutAuth />,
             children: [
               {
                 path: 'main',
