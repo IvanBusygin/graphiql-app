@@ -25,7 +25,7 @@ function Layout() {
     <div className="grid h-screen w-screen grid-cols-[1fr] grid-rows-[_50px_1fr_50px] bg-blue-300">
       <Header />
 
-      <main>
+      <>
         {loading ? (
           <div className="flex h-full w-full items-center justify-center">
             <Refresh className="h-10 w-10 animate-spin stroke-white" />
@@ -33,7 +33,7 @@ function Layout() {
         ) : (
           <Outlet />
         )}
-      </main>
+      </>
 
       <Footer />
     </div>

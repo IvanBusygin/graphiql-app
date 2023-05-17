@@ -5,6 +5,11 @@ export default {
   content: ['./index.html', './src/**/*.{jsx,tsx}'],
   theme: {
     extend: {},
+    screens: {
+      // => @media (min-width: 640px) { ... }
+      toosmall: { min: '0px', max: '319px' },
+      xs: { min: '320px', max: '640px' },
+    },
   },
   plugins: [
     plugin(({ addBase }) => {
