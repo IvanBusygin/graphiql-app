@@ -48,7 +48,15 @@ export function Header() {
           ''
         ) : user ? (
           <>
-            <div className="leading-3 text-gray-600">{user.email}</div>
+            <div
+              className={cls(
+                'flex items-center justify-end gap-4 leading-3',
+                { 'text-white ': isSticky },
+                { 'text-black': !isSticky },
+              )}
+            >
+              {user.email}
+            </div>
             <SignoutBtn />
           </>
         ) : (
