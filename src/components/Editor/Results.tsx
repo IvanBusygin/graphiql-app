@@ -15,7 +15,7 @@ function Results({ result, fetchTime }: Props) {
             <span className="mr-2">ping:</span>
             <p
               className={`self-center rounded px-2 py-1 ${
-                fetchTime > 75 ? 'bg-red-500' : 'bg-green-500'
+                fetchTime > 250 ? 'bg-red-500' : 'bg-green-500'
               }`}
             >
               {fetchTime}

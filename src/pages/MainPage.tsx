@@ -16,8 +16,11 @@ export const MainPage = () => {
   }, [user, navigate]);
 
   return (
-    <main className="page flex h-full w-full overflow-hidden bg-[#212A3B] text-white toosmall:opacity-0">
-      <GraphiqlEditor />
-    </main>
+    <>
+      <main className="page flex h-full w-full overflow-hidden bg-[#212A3B] text-white toosmall:hidden">
+        <GraphiqlEditor />
+      </main>
+      <div className="hidden self-center text-center toosmall:grid">screen is too small</div>
+    </>
   );
 };
