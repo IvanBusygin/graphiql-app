@@ -1,15 +1,17 @@
-import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { auth } from '../firebase';
-import { useAuthState } from 'react-firebase-hooks/auth';
 import { LoginForm } from '../components/Form/LoginForm';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
+import { auth } from '../firebase';
 
 export function LoginPage() {
   const navigate = useNavigate();
   const [user] = useAuthState(auth);
 
   useEffect(() => {
-    if (user) navigate('/');
+    if (user) {
+      navigate('/graphiql');
+    }
   }, [user, navigate]);
 
   return (

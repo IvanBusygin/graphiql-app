@@ -8,8 +8,8 @@ import { SignoutBtn } from '../../UI/SignoutBtn';
 import LanguageSwitch from '../LanguageSwitch';
 
 export function Header() {
-  const [user] = useAuthState(auth);
   const [isSticky, setIsSticky] = useState(false);
+  const [user, loading] = useAuthState(auth);
   const { t } = useTranslation();
 
   useEffect(() => {
@@ -44,11 +44,13 @@ export function Header() {
         <LanguageSwitch />
       </div>
       <div className="flex items-center justify-end gap-4">
-        {user ? (
-          <div className="flex items-center justify-end gap-4 text-center">
-            <div className="leading-3">{user.email}</div>
+        {loading ? (
+          ''
+        ) : user ? (
+          <>
+            <div className=" text-gray-600">{user.email}</div>
             <SignoutBtn />
-          </div>
+          </>
         ) : (
           <>
             <Link
