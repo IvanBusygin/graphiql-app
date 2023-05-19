@@ -43,7 +43,7 @@ function GraphqlEditor(): React.ReactElement {
       .then((result) => {
         const timeEnd = Date.now();
         setFetchTime(timeEnd - timeStart);
-        setResult(JSON.stringify(result));
+        setResult(JSON.stringify(result, null, 2));
       })
       .catch((e: Error) => {
         setResult(e.message);

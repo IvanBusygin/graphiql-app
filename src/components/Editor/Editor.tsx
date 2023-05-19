@@ -14,7 +14,7 @@ function Editor({ text = '', func }: Props): React.ReactElement {
   }
 
   return (
-    <div className="mr-4">
+    <code className="mr-4">
       <textarea
         className="Editor scrollbar h-full w-full resize-none rounded-xl bg-[#212A3B] p-1 outline-none"
         name="Editor"
@@ -24,7 +24,7 @@ function Editor({ text = '', func }: Props): React.ReactElement {
         value={inputValue}
         onChange={handleInput}
       ></textarea>
-    </div>
+    </code>
   );
 }
 

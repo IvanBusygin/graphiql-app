@@ -6,8 +6,8 @@ interface Props {
 function Results({ result, fetchTime }: Props) {
   return (
     <div className="right grid grid-rows-[1fr_auto] overflow-hidden p-2">
-      <div className="rightTop scrollbar grid grid-cols-[1fr_40px] p-4">
-        <code className="">{result}</code>
+      <div className="rightTop scrollbar relative grid grid-cols-[1fr_40px] grid-rows-1 p-4">
+        <code className="absolute whitespace-pre-wrap p-4">{result}</code>
       </div>
       {fetchTime > 0 && (
         <div className="rightBottom h-[50px]">
