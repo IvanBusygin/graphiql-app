@@ -1,7 +1,26 @@
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
+import { auth } from '../firebase';
+
+import GraphiqlEditor from '../components/Editor/GraphqlEditor';
+
 export const MainPage = () => {
+  const navigate = useNavigate();
+  const [user] = useAuthState(auth);
+
+  useEffect(() => {
+    if (!user) {
+      navigate('/');
+    }
+  }, [user, navigate]);
+
   return (
-    <div className="flex h-full items-center justify-center text-center ">
-      <div className="border-l-8 pl-2 ">MainPage</div>
-    </div>
+    <>
+      <main className="page flex h-full w-full overflow-hidden bg-[#212A3B] text-white toosmall:hidden">
+        <GraphiqlEditor />
+      </main>
+      <div className="hidden self-center text-center toosmall:grid">screen is too small</div>
+    </>
   );
 };

@@ -4,7 +4,7 @@ import rs_school_logo from '../../assets/rs_school_logo.svg';
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="bottom-0 flex h-[50px] w-full items-center justify-between bg-gray-200 p-4">
+    <footer className="flex h-[50px] w-full items-center justify-between bg-gray-200 p-4">
       <a
         href="https://github.com/IvanBusygin/graphiql-app"
         className="mx-4"
@@ -18,7 +18,7 @@ export const Footer: React.FC = () => {
           height="52"
         />
       </a>
-      <span className="mx-4">2023</span>
+      <span className="mx-4 select-none">2023</span>
       <a
         href="https://rs.school/react/"
         className="mx-4"

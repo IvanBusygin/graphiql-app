@@ -8,8 +8,8 @@ import { SignoutBtn } from '../../UI/SignoutBtn';
 import LanguageSwitch from '../LanguageSwitch';
 
 export function Header() {
-  const [user] = useAuthState(auth);
   const [isSticky, setIsSticky] = useState(false);
+  const [user, loading] = useAuthState(auth);
   const { t } = useTranslation();
 
   useEffect(() => {
@@ -31,22 +31,34 @@ export function Header() {
   return (
     <header
       className={cls(
-        'max-h-17 flex w-full justify-between max550:flex-col max550:items-center',
-        { 'sticky top-0 bg-darkRed p-1 text-white ': isSticky },
+        'flex h-14 w-full justify-between max550:flex-col max550:items-center',
+        { 'sticky top-0 bg-darkRed p-0 text-white ': isSticky },
         { 'bg-transparent p-3': !isSticky },
         'transition-all duration-700',
       )}
     >
       <div className="ml-4 flex items-center justify-start gap-4">
-        <h1 className="text-xl font-bold text-blue-900">GraphiQL-APP</h1>
+        <h1 className="select-none p-1 text-xl font-bold text-blue-900">
+          <Link to="/">GraphiQL-APP</Link>{' '}
+        </h1>
         <LanguageSwitch />
       </div>
       <div className="flex items-center justify-end gap-4">
-        {user ? (
-          <div className="flex items-center justify-end gap-4 text-center">
-            <div className="leading-3">{user.email}</div>
+        {loading ? (
+          ''
+        ) : user ? (
+          <>
+            <div
+              className={cls(
+                'flex items-center justify-end gap-4 leading-3',
+                { 'text-white ': isSticky },
+                { 'text-black': !isSticky },
+              )}
+            >
+              {user.email}
+            </div>
             <SignoutBtn />
-          </div>
+          </>
         ) : (
           <>
             <Link

@@ -1,4 +1,5 @@
 {
+  "test": "Hello world!",
   "login": "Log in",
   "register": "Register"
 }
