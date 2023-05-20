@@ -1,5 +1,10 @@
 {
-  "test": "Hello world!",
-  "login": "Log in",
-  "register": "Register"
+  "not_found": {
+    "message": "It looks like you're lost",
+    "button": "Go to the homepage"
+  },
+  "header": {
+    "login": "Log in",
+    "register": "Register"
+  }
 }

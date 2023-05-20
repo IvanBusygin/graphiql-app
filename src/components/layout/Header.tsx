@@ -65,13 +65,13 @@ export function Header() {
               to="/register"
               className="hover: flex cursor-pointer p-2 hover:bg-blue-100"
             >
-              {t('register')}
+              {t('header.register')}
             </Link>
             <Link
               to="/login"
               className="hover: flex cursor-pointer p-2 hover:bg-blue-100"
             >
-              {t('login')}
+              {t('header.login')}
             </Link>
           </>
         )}
