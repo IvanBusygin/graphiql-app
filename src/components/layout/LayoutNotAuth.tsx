@@ -13,11 +13,7 @@ function LayoutNotAuth() {
         replace
       />
     );
-  return (
-    <div className="flex-grow bg-blue-300">
-      <Outlet />
-    </div>
-  );
+  return <Outlet />;
 }
 
 export default LayoutNotAuth;
