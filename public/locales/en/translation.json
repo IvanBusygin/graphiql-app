@@ -3,6 +3,16 @@
   "login": "Log in",
   "register": "Register",
 
+  "not_found": {
+    "message": "It looks like you're lost",
+    "button": "Go to the homepage"
+  },
+
+  "header": {
+    "login": "Log in",
+    "register": "Register"
+  },
+
   "error": {
     "email-already-in-use": "This email address is already registered in the system.",
     "invalid-email": "Invalid email address format.",
