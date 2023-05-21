@@ -5,66 +5,70 @@ import { CloseBtn } from '../../UI/CloseBtn';
 import { Link } from 'react-router-dom';
 import EmailInput from './EmailInput';
 import { sendPasswordReset } from '../../firebase';
-import { ModalMsg } from '../../UI/ModalMsg';
 import { FormInputs } from './interfaces';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useTranslation } from 'react-i18next';
 
 export const ResetPasswordForm = () => {
+  const { t } = useTranslation();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<FormInputs>({ mode: 'onSubmit', reValidateMode: 'onSubmit' });
-  const [isError, setIsError] = useState('');
-  const [isMsg, setIsMsg] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
   const onSubmit = async (data: FormInputs) => {
     try {
       setIsLoading(true);
       await sendPasswordReset(data.email);
-      setIsMsg('Password reset link sent!');
+      toast.success(t('msg.reset-password-sent'));
     } catch (err) {
+      toast.error(t(`error.${err as string}`));
       console.error('error :>> ', err);
-      setIsError(err as string);
     }
     setIsLoading(false);
   };
   return (
-    <div className="border-1 relative flex w-full max-w-xs flex-col items-center rounded-xl border-gray-100 bg-gray-50 p-8 drop-shadow-lg">
-      {!isMsg && !isError && <CloseBtn />}
-      <ModalMsg
-        title="Ошибка"
-        isOpen={isError !== ''}
-        text={isError}
-        setIsModal={setIsError}
+    <section className="flex w-full items-center justify-center">
+      <ToastContainer
+        position="top-center"
+        autoClose={10000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
       />
-      <ModalMsg
-        isOpen={isMsg !== ''}
-        text={isMsg}
-        setIsModal={setIsMsg}
-      />
+      <div className="border-1 relative flex w-full max-w-xs flex-col items-center rounded-xl border-gray-100 bg-gray-50 p-8 drop-shadow-lg">
+        <CloseBtn />
 
-      <form
-        onSubmit={handleSubmit(onSubmit)}
-        className="flex w-full flex-col"
-      >
-        <EmailInput
-          register={register}
-          errors={errors}
-        />
-        <ActionBtn
-          btnText="Send password reset email"
-          isLoading={isLoading}
-        />
-      </form>
-      <p className="text-gray-400">Already have an account?</p>
-      <Link
-        to="/login"
-        className="text-blue-500 hover:text-blue-700"
-        tabIndex={5}
-      >
-        Login
-      </Link>
-    </div>
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="flex w-full flex-col"
+        >
+          <EmailInput
+            register={register}
+            errors={errors}
+          />
+          <ActionBtn
+            btnText="Send reset link"
+            isLoading={isLoading}
+          />
+        </form>
+        <p className="text-gray-400">Already have an account?</p>
+        <Link
+          to="/login"
+          className="text-blue-500 hover:text-blue-700"
+          tabIndex={5}
+        >
+          Login
+        </Link>
+      </div>
+    </section>
   );
 };

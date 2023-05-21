@@ -1,10 +1,30 @@
 {
+  "test": "Hello world!",
+  "login": "Log in",
+  "register": "Register",
+
   "not_found": {
     "message": "It looks like you're lost",
     "button": "Go to the homepage"
   },
+
   "header": {
     "login": "Log in",
     "register": "Register"
+  },
+
+  "error": {
+    "email-already-in-use": "This email address is already registered in the system.",
+    "invalid-email": "Invalid email address format.",
+    "user-not-found": "The user with this email address was not found in the system.",
+    "wrong-password": "Invalid user password.",
+    "user-token-expired": "User token has expired.",
+    "too-many-requests": "Too many requests. Please try again later.",
+    "user-disabled": "User is disabled in the system.",
+    "default": "Something went wrong ¯\\_(ツ)_/¯"
+  },
+
+  "msg": {
+    "reset-password-sent": "Password reset link sent!"
   }
 }

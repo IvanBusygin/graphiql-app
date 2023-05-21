@@ -26,21 +26,21 @@ const handleError = (err: FirebaseError) => {
   const result = () => {
     switch (errorCode) {
       case 'email-already-in-use':
-        return 'Этот адрес электронной почты уже зарегистрирован в системе.';
+        return 'email-already-in-use';
       case 'invalid-email':
-        return 'Некорректный формат адреса электронной почты.';
+        return 'invalid-email';
       case 'user-not-found':
-        return 'Пользователь с таким адресом электронной почты не найден в системе.';
+        return 'user-not-found';
       case 'wrong-password':
-        return 'Неверный пароль пользователя.';
+        return 'wrong-password';
       case 'user-token-expired':
-        return 'Срок действия токена пользователя истек.';
+        return 'user-token-expired';
       case 'too-many-requests':
-        return 'Превышено количество запросов. Попробуйте позже.';
+        return 'too-many-requests';
       case 'user-disabled':
-        return 'Пользователь отключен в системе.';
+        return 'user-disabled';
       default:
-        return 'Что-то пошло не так ¯\\_(ツ)_/¯';
+        return 'default';
     }
   };
   throw result();
