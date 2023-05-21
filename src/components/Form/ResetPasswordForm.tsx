@@ -8,8 +8,10 @@ import { sendPasswordReset } from '../../firebase';
 import { FormInputs } from './interfaces';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useTranslation } from 'react-i18next';
 
 export const ResetPasswordForm = () => {
+  const { t } = useTranslation();
   const {
     register,
     handleSubmit,
@@ -21,10 +23,10 @@ export const ResetPasswordForm = () => {
     try {
       setIsLoading(true);
       await sendPasswordReset(data.email);
-      toast.success('Password reset link sent!');
+      toast.success(t('msg.reset-password-sent'));
     } catch (err) {
+      toast.error(t(`error.${err as string}`));
       console.error('error :>> ', err);
-      toast.error(err as string);
     }
     setIsLoading(false);
   };

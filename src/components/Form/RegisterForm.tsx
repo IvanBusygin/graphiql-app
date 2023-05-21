@@ -9,8 +9,10 @@ import { registerWithEmailAndPassword } from '../../firebase';
 import { FormInputs } from './interfaces';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useTranslation } from 'react-i18next';
 
 export const RegisterForm = () => {
+  const { t } = useTranslation();
   const {
     register,
     handleSubmit,
@@ -23,7 +25,7 @@ export const RegisterForm = () => {
       setIsLoading(true);
       await registerWithEmailAndPassword(data.email, data.password);
     } catch (err) {
-      toast.error(err as string);
+      toast.error(t(`error.${err as string}`));
       console.error('error :>> ', err);
     }
     setIsLoading(false);
