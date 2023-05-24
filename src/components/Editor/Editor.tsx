@@ -1,30 +1,39 @@
-import { Dispatch, SetStateAction, useState } from 'react';
+import useStore, { ZState } from '../../store';
+import EditorBtns from './EditorBtns';
+import EditorTools from './EditorTools';
+import cls from 'clsx';
 
-interface Props {
-  func?: Dispatch<SetStateAction<string>>;
-  text?: string;
-}
-
-function Editor({ text = '', func }: Props): React.ReactElement {
-  const [inputValue, setInputValue] = useState(text);
+function Editor(): React.ReactElement {
+  const query = useStore((state: ZState) => state.query);
+  const setQuery = useStore((state: ZState) => state.setQuery);
 
   function handleInput(e: React.FormEvent<HTMLTextAreaElement>) {
-    setInputValue(e.currentTarget.value);
-    func?.(e.currentTarget.value);
+    setQuery(e.currentTarget.value);
   }
 
   return (
-    <code className="mr-4">
-      <textarea
-        className="Editor scrollbar h-full w-full resize-none rounded-xl bg-[#212A3B] p-1 outline-none"
-        name="Editor"
-        id="Editor"
-        cols={30}
-        rows={10}
-        value={inputValue}
-        onChange={handleInput}
-      ></textarea>
-    </code>
+    <section
+      className={cls(
+        'EDITOR flex h-full w-full flex-col bg-grayLight',
+        'xs:rounded-t-3xl',
+        'lg:rounded-l-3xl',
+      )}
+    >
+      <code className="relative flex h-full w-full rounded-3xl p-2 pb-0">
+        <textarea
+          className="scrollbar h-full w-full resize-none overflow-auto rounded-t-2xl bg-grayDark p-4 pr-12 text-white outline-none"
+          name="Editor"
+          id="Editor"
+          cols={30}
+          rows={10}
+          value={query}
+          onChange={handleInput}
+          spellCheck="false"
+        ></textarea>
+        <EditorBtns />
+      </code>
+      <EditorTools />
+    </section>
   );
 }
 

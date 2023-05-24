@@ -31,19 +31,19 @@ export function Header() {
   return (
     <header
       className={cls(
-        'flex h-14 w-full justify-between max550:flex-col max550:items-center',
+        'z-40 flex h-14 w-full justify-between max550:h-[100px] max550:flex-col max550:items-center',
         { 'sticky top-0 bg-darkRed p-0 text-white ': isSticky },
         { 'bg-transparent p-3': !isSticky },
         'transition-all duration-700',
       )}
     >
       <div className="ml-4 flex items-center justify-start gap-4">
-        <h1 className="select-none p-1 text-xl font-bold text-blue-900">
+        <h1 className="select-none text-xl font-bold text-blue-900">
           <Link to="/">GraphiQL-APP</Link>{' '}
         </h1>
         <LanguageSwitch />
       </div>
-      <div className="flex items-center justify-end gap-4">
+      <div className="flex items-center justify-end gap-4 ">
         {loading ? (
           ''
         ) : user ? (

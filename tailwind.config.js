@@ -7,14 +7,19 @@ export default {
     extend: {
       colors: {
         darkRed: '#a22162',
+        grayDark: '#212A3B',
+        grayLight: '#313949',
+        grayText: '#CED0D3',
       },
       screens: {
         max550: { max: '550px' },
       },
     },
     screens: {
-      toosmall: { min: '0px', max: '319px' },
-      xs: { min: '320px', max: '640px' },
+      toosmall: { max: '319px' },
+      xs: { max: '640px' },
+      md: { max: '768px' },
+      lg: { min: '640px' },
     },
   },
   plugins: [
@@ -22,25 +27,29 @@ export default {
       addBase({
         '.scrollbar': {
           overflowY: 'auto',
-          scrollbarColor: `#313949`,
-          scrollbarWidth: '8px',
+          scrollbarColor: '#ff0000',
+          scrollbarWidth: 'thin',
         },
         '.scrollbar::-webkit-scrollbar': {
-          height: '1px',
-          width: '16px',
+          height: '2px',
+          width: '10px',
         },
         '.scrollbar::-webkit-scrollbar-thumb': {
-          backgroundColor: '#212A3B',
-          borderRadius: '8px',
-          border: '4px solid #313949',
-        },
-        '.scrollbar::-webkit-scrollbar-thumb:hover': {
-          backgroundColor: '#212A3B',
+          backgroundColor: '#313949',
+          border: '1px solid #CED0D3',
+          borderRadius: '10px',
         },
         '.scrollbar::-webkit-scrollbar-track-piece': {
-          backgroundColor: '#313949',
-          borderRadius: '8px',
+          backgroundColor: '#00000000',
         },
+        '.scrollbar::-webkit-scrollbar-button:single-button:vertical:decrement': {
+          heigth: '0px',
+          backgroundColor: '#00000000',
+        },
+        // '.scrollbar::-webkit-scrollbar-button:single-button:vertical:increment': {
+        //   heigth: '0px',
+        //   backgroundColor: '#00000000',
+        // },
       });
     }),
   ],

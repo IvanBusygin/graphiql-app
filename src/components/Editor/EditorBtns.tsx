@@ -2,37 +2,48 @@ import { ReactComponent as Copy } from '../../assets/Buttons/Copy.svg';
 import { ReactComponent as Execute } from '../../assets/Buttons/Execute.svg';
 import { ReactComponent as Merge } from '../../assets/Buttons/Merge.svg';
 import { ReactComponent as Prettify } from '../../assets/Buttons/Prettify.svg';
+import getData from '../../utils/api/getData';
+import useStore, { ZState } from '../../store';
+import cls from 'clsx';
 
-type FProps = (a: string) => void;
+const btnStyle =
+  'm-[5px] flex h-[40px] w-[40px] items-center justify-center rounded-lg stroke-grayText hover:bg-[#313949] hover:stroke-white';
 
-function EditorBtns({ func }: { func: FProps }) {
+function EditorBtns() {
+  const headersInput = useStore((state: ZState) => state.headersInput);
+  const query = useStore((state: ZState) => state.query);
+  const setResult = useStore((state: ZState) => state.setResult);
+
+  const handleClick = async () => {
+    setResult({ output: '', time: 0, isLoading: true });
+    const result = await getData(headersInput, query);
+    result && setResult(result);
+  };
+
   return (
-    <div className="flex flex-col gap-4 ">
+    <div className="absolute right-5 top-5 flex flex-col rounded-tr-2xl bg-grayDark">
       <button
-        className="flex h-[40px] w-[40px] items-center justify-center rounded-lg bg-[#2BAB7C] hover:bg-[#2A9E76]"
+        className={cls('bg-[#2BAB7C] hover:bg-[#2A9E76]', btnStyle)}
         title="Execute query"
-        onClick={() => func('Exec')}
+        onClick={handleClick}
       >
         <Execute />
       </button>
       <button
-        className="flex h-[40px] w-[40px] items-center justify-center rounded-lg hover:bg-[#313949]"
+        className={cls(btnStyle)}
         title="Prettify query"
-        onClick={() => func('Prettify')}
       >
         <Prettify />
       </button>
       <button
-        className="flex h-[40px] w-[40px] items-center justify-center rounded-lg hover:bg-[#313949]"
+        className={cls(btnStyle)}
         title="Merge fragments into query"
-        onClick={() => func('Merge')}
       >
         <Merge />
       </button>
       <button
-        className="flex h-[40px] w-[40px] items-center justify-center rounded-lg hover:bg-[#313949]"
+        className={cls(btnStyle)}
         title="Copy query"
-        onClick={() => func('Copy')}
       >
         <Copy />
       </button>
