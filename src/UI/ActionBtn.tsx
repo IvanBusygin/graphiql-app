@@ -9,7 +9,7 @@ export const ActionBtn = (props: { btnText: string; isLoading?: boolean; func?: 
       tabIndex={3}
       type="submit"
     >
-      {props.isLoading ? <Refresh className="h-6 w-6 animate-spin" /> : props.btnText}
+      {props.isLoading ? <Refresh className="h-6 w-6 animate-spin stroke-white" /> : props.btnText}
     </button>
   );
 };

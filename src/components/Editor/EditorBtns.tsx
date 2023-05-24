@@ -23,7 +23,10 @@ function EditorBtns() {
   return (
     <div className="absolute right-5 top-5 flex flex-col rounded-tr-2xl bg-grayDark">
       <button
-        className={cls('bg-[#2BAB7C] hover:bg-[#2A9E76]', btnStyle)}
+        className={cls(
+          'm-[5px] flex h-[40px] w-[40px] items-center justify-center rounded-lg',
+          'bg-[#2BAB7C] stroke-[#2BAB7C] hover:bg-[#2A9E76]',
+        )}
         title="Execute query"
         onClick={handleClick}
       >
