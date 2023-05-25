@@ -7,7 +7,7 @@ import EmailInput from './EmailInput';
 import PasswordInput from './PasswordInput';
 import { logInWithEmailAndPassword } from '../../firebase';
 import { FormInputs } from './interfaces';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useTranslation } from 'react-i18next';
 
@@ -31,19 +31,7 @@ export const LoginForm = () => {
     setIsLoading(false);
   };
   return (
-    <section className="flex w-full items-center justify-center">
-      <ToastContainer
-        position="top-center"
-        autoClose={10000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="light"
-      />
+    <section className="flex w-full items-center justify-center p-8">
       <div className="border-1 relative flex w-full max-w-xs flex-col items-center rounded-xl border-gray-100 bg-gray-50 p-8 drop-shadow-lg">
         <CloseBtn />
         <form

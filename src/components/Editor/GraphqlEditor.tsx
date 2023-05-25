@@ -1,82 +1,40 @@
-import { useState } from 'react';
 import Editor from './Editor';
-import EditorBtns from './EditorBtns';
-import EditorTools from './EditorTools';
 import Results from './Results';
-import { ReactComponent as Refresh } from '../../assets/Buttons/Refresh.svg';
 import AsideMenu from './AsideMenu';
-
-const url = 'https://rickandmortyapi.com/graphql';
-const testQuery = `query
-  {
-    characters(page:1,filter:{name:"summer"}){
-      info{count}
-      results{name}
-    }
-  }`;
+import Documentation from './Documentation';
+import useStore, { SideMenuOptions, ZState } from '../../store';
+import clsx from 'clsx';
+import History from './History';
 
 function GraphqlEditor(): React.ReactElement {
-  const [inputValue, setInputValue] = useState(testQuery);
-  const [result, setResult] = useState('');
-  const [fetchTime, setFetchTime] = useState(0);
-  const [isLoading, setIsLoading] = useState(false);
-
-  const clickBtn = (btn: string) => {
-    if (btn === 'Exec') {
-      getData(inputValue);
-    }
-  };
-
-  async function getData(query: string) {
-    setIsLoading(true);
-    const timeStart = Date.now();
-    await fetch(url, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        query,
-      }),
-    })
-      .then((res) => res.json())
-      .then((result) => {
-        const timeEnd = Date.now();
-        setFetchTime(timeEnd - timeStart);
-        setResult(JSON.stringify(result, null, 2));
-      })
-      .catch((e: Error) => {
-        setResult(e.message);
-      })
-      .finally(() => setIsLoading(false));
-  }
+  const sideMenu = useStore((state: ZState) => state.sideMenu);
 
   return (
-    <>
+    <main
+      className={clsx(
+        'grid h-full w-full min-w-[270px] grid-rows-1 bg-grayDark text-grayText',
+        sideMenu ? 'grid-cols-[50px_1fr_2fr]' : 'grid-cols-[50px_1fr]',
+        sideMenu ? 'xs:grid-cols-[50px_1fr]' : 'xs:grid-cols-[50px_1fr]',
+      )}
+    >
       <AsideMenu />
-      <section className="m-4 ml-0 grid w-full grow grid-cols-[minmax(255px,1fr)_minmax(0,1fr)] rounded-[20px] bg-[#313949] xs:grow-0">
-        <div className="left m-2 grid grid-rows-[1fr_auto] rounded-[12px] bg-[#212A3B]">
-          <div className="leftTop grid grid-cols-[1fr_40px] p-4">
-            <Editor
-              text={testQuery}
-              func={setInputValue}
-            />
-            <EditorBtns func={clickBtn} />
-          </div>
-          <EditorTools />
-        </div>
-        {isLoading ? (
-          <div className="flex h-full w-full items-center justify-center">
-            <Refresh className="h-10 w-10 animate-spin stroke-white" />
-          </div>
-        ) : (
-          <Results
-            result={result}
-            fetchTime={fetchTime}
-          />
+      {sideMenu === SideMenuOptions.documentation && <Documentation />}
+      {sideMenu === SideMenuOptions.history && <History />}
+      <div
+        className={clsx(
+          'mr-4 flex h-full overflow-hidden ',
+          'xs:mr-0 xs:flex-col xs:pl-0',
+          'bg-grayDark p-2',
+          {
+            'xs:hidden': sideMenu,
+          },
+          'xs:grid xs:grid-rows-[600px_600px]',
         )}
-      </section>
-    </>
+      >
+        <Editor />
+        <Results />
+      </div>
+    </main>
   );
 }
 
