@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import { SideMenuOptions } from './components/Editor/GraphqlEditor';
 
 interface Result {
   output: string;
@@ -7,9 +8,9 @@ interface Result {
 }
 
 export interface ZState {
-  sideMenu: string;
+  sideMenu: SideMenuOptions;
   editorTools: string;
-  toggleSideMenu: (value: string) => void;
+  toggleSideMenu: (value: SideMenuOptions) => void;
   toggleTools: (value: string) => void;
   variablesInput: string;
   headersInput: string;
@@ -22,7 +23,7 @@ export interface ZState {
 }
 
 const useStore = create<ZState>((set) => ({
-  sideMenu: '',
+  sideMenu: SideMenuOptions.hidden,
   editorTools: '',
   variablesInput: '',
   headersInput: `{
@@ -42,7 +43,7 @@ const useStore = create<ZState>((set) => ({
     isLoading: false,
   },
 
-  toggleSideMenu: (value: string) =>
+  toggleSideMenu: (value: SideMenuOptions) =>
     set((state: ZState) => ({
       ...state,
       sideMenu: value,

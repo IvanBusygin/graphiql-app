@@ -6,6 +6,12 @@ import useStore, { ZState } from '../../store';
 import clsx from 'clsx';
 import History from './History';
 
+export enum SideMenuOptions {
+  documentation = 'Documentation',
+  history = 'History',
+  hidden = '',
+}
+
 function GraphqlEditor(): React.ReactElement {
   const sideMenu = useStore((state: ZState) => state.sideMenu);
 
@@ -18,8 +24,8 @@ function GraphqlEditor(): React.ReactElement {
       )}
     >
       <AsideMenu />
-      {sideMenu === 'Documentation' && <Documentation />}
-      {sideMenu === 'History' && <History />}
+      {sideMenu === SideMenuOptions.documentation && <Documentation />}
+      {sideMenu === SideMenuOptions.history && <History />}
       <div
         className={clsx(
           'mr-4 flex h-full overflow-hidden ',
