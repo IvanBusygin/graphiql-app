@@ -46,10 +46,6 @@ export default {
           heigth: '0px',
           backgroundColor: '#00000000',
         },
-        // '.scrollbar::-webkit-scrollbar-button:single-button:vertical:increment': {
-        //   heigth: '0px',
-        //   backgroundColor: '#00000000',
-        // },
       });
     }),
   ],
