@@ -47,17 +47,17 @@ export const RegisterForm = () => {
             errors={errors}
           />
           <ActionBtn
-            btnText="Create account"
+            btnText={t('registerPage.register')}
             isLoading={isLoading}
           />
         </form>
-        <p className="text-gray-400">Already have an account?</p>
+        <p className="text-gray-400">{t('registerPage.haveAccount')}</p>
         <Link
           to="/login"
           className="text-blue-500 hover:text-blue-700"
           tabIndex={5}
         >
-          Login
+          {t('registerPage.login')}
         </Link>
       </div>
     </section>

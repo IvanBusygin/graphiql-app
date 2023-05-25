@@ -1,23 +1,25 @@
 import { Link } from 'react-router-dom';
 import { PasswordInputProps } from './interfaces';
+import { useTranslation } from 'react-i18next';
 
 const PasswordInput = ({ register, errors, recoverLink = false }: PasswordInputProps) => {
+  const { t } = useTranslation();
   const validatePassword = (value: string) => {
     if (value.length === 0) {
-      return `Please enter your password`;
+      return t(`password.empty`);
     }
     if (value.length < 8) {
-      return `Password is too short`;
+      return t(`password.short`);
     }
     if (!recoverLink) {
       if (!/[a-zA-Z]/.test(value)) {
-        return 'Add at least one letter';
+        return t(`password.letter`);
       }
       if (!/\d/.test(value)) {
-        return 'Add at least one digit';
+        return t(`password.digit`);
       }
       if (!/[!@#$%^&*()]/.test(value)) {
-        return 'Add at least one special character';
+        return t(`password.special`);
       }
     } else return true;
   };
@@ -29,7 +31,7 @@ const PasswordInput = ({ register, errors, recoverLink = false }: PasswordInputP
           htmlFor="password"
           className="mb-1"
         >
-          Password
+          {t(`password.label`)}
         </label>
         {recoverLink && (
           <Link
@@ -37,7 +39,7 @@ const PasswordInput = ({ register, errors, recoverLink = false }: PasswordInputP
             className="justify-self-center text-blue-500 hover:text-blue-700"
             tabIndex={4}
           >
-            Forgot?
+            {t(`password.forgot`)}
           </Link>
         )}
       </div>
@@ -45,7 +47,7 @@ const PasswordInput = ({ register, errors, recoverLink = false }: PasswordInputP
         id="password"
         type="password"
         tabIndex={2}
-        placeholder="enter your password"
+        placeholder={t(`password.placeholder`) || ''}
         className={`w-full rounded-md p-2 placeholder:text-gray-400 focus:outline-none focus:ring-2 ${
           errors.password
             ? 'outline outline-1 outline-red-400 focus:ring-red-400'
@@ -56,11 +58,11 @@ const PasswordInput = ({ register, errors, recoverLink = false }: PasswordInputP
         })}
       />
       <div
-        className={`absolute -bottom-6 text-center transition-all duration-300 ${
+        className={`absolute -bottom-5 text-center transition-all duration-300 ${
           errors.password ? 'opacity-1 -translate-y-0' : '-translate-y-1/4 opacity-0 delay-1000'
         }`}
       >
-        <p className="text-red-500">{errors.password ? errors.password.message : ''}</p>
+        <p className="text-sm text-red-500">{errors.password ? errors.password.message : ''}</p>
       </div>
     </div>
   );

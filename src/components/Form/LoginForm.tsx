@@ -50,17 +50,17 @@ export const LoginForm = () => {
             />
           </div>
           <ActionBtn
-            btnText="Log in"
+            btnText={t('loginPage.login')}
             isLoading={isLoading}
           />
         </form>
-        <p className="text-gray-400">Don&apos;t have account?</p>
+        <p className="text-gray-400">{t('loginPage.noAccount')}</p>
         <Link
           tabIndex={5}
           to="/register"
           className="text-blue-500 hover:text-blue-700"
         >
-          Register now.
+          {t('loginPage.register')}
         </Link>
       </div>
     </section>

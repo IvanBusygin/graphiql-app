@@ -1,7 +1,5 @@
 {
   "test": "Hello world!",
-  "login": "Log in",
-  "register": "Register",
 
   "not_found": {
     "message": "It looks like you're lost",
@@ -26,5 +24,41 @@
 
   "msg": {
     "reset-password-sent": "Password reset link sent!"
+  },
+
+  "email": {
+    "placeholder": "enter your email",
+    "label": "Email",
+    "empty": "Please enter your email",
+    "short": "Email is too short",
+    "invalid": "Invalid email"
+  },
+
+  "password": {
+    "placeholder": "enter your password",
+    "label": "Password",
+    "forgot": "Forgot?",
+    "empty": "Please enter your password",
+    "short": "Password is too short",
+    "letter": "Add at least one letter",
+    "digit": "Add at least one digit",
+    "special": "Add at least one special character"
+  },
+
+  "loginPage": {
+    "login": "Log in",
+    "noAccount": "Don't have account?",
+    "register": "Register now"
+  },
+
+  "registerPage": {
+    "register": "Create account",
+    "haveAccount": "Already have an account?",
+    "login": "Enter site"
+  },
+
+  "resetPage": {
+    "resetMsg": "A password reset link will be sent to your email address",
+    "sendLink": "Send reset link"
   }
 }
