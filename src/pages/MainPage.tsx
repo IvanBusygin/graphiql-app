@@ -1,8 +1,8 @@
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
-import { auth } from '../firebase';
 
+import { auth } from '../firebase';
 import GraphiqlEditor from '../components/Editor/GraphqlEditor';
 
 export const MainPage = () => {
