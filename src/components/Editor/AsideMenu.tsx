@@ -4,8 +4,7 @@ import { ReactComponent as Refresh } from '../../assets/Buttons/Refresh.svg';
 import { ReactComponent as Shortkeys } from '../../assets/Buttons/Shortkeys.svg';
 import { ReactComponent as Settings } from '../../assets/Buttons/Settings.svg';
 import cls from 'clsx';
-import useStore, { ZState } from '../../store';
-import { SideMenuOptions } from './GraphqlEditor';
+import useStore, { SideMenuOptions, ZState } from '../../store';
 
 const btnstyle =
   'flex h-[40px] w-[40px] m-[5px] items-center justify-center rounded-lg hover:bg-[#313949] hover:bg-[#313949] stroke-grayText hover:stroke-white';

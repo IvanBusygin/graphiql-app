@@ -1,5 +1,10 @@
 import { create } from 'zustand';
-import { SideMenuOptions } from './components/Editor/GraphqlEditor';
+
+export enum SideMenuOptions {
+  documentation = 'Documentation',
+  history = 'History',
+  hidden = '',
+}
 
 interface Result {
   output: string;

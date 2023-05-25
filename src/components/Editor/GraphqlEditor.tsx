@@ -2,15 +2,9 @@ import Editor from './Editor';
 import Results from './Results';
 import AsideMenu from './AsideMenu';
 import Documentation from './Documentation';
-import useStore, { ZState } from '../../store';
+import useStore, { SideMenuOptions, ZState } from '../../store';
 import clsx from 'clsx';
 import History from './History';
-
-export enum SideMenuOptions {
-  documentation = 'Documentation',
-  history = 'History',
-  hidden = '',
-}
 
 function GraphqlEditor(): React.ReactElement {
   const sideMenu = useStore((state: ZState) => state.sideMenu);
