@@ -1,5 +1,5 @@
 {
-  "test": "გამარჯობა მსოფლიო!",
+  "welcome": "მოგესალმებით Rick და Morty Graphql API",
   "login": "შემოსვლა",
   "register": "ანგარიშის შექმნა",
 
