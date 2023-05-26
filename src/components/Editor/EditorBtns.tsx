@@ -10,13 +10,12 @@ const btnStyle =
   'm-[5px] flex h-[40px] w-[40px] items-center justify-center rounded-lg stroke-grayText hover:bg-[#313949] hover:stroke-white';
 
 function EditorBtns() {
-  const headersInput = useStore((state: ZState) => state.headersInput);
-  const query = useStore((state: ZState) => state.query);
-  const setResult = useStore((state: ZState) => state.setResult);
-
+  const { headersInput, variablesInput, queryInput, setResult } = useStore(
+    (state: ZState) => state,
+  );
   const handleClick = async () => {
     setResult({ output: '', time: 0, isLoading: true });
-    const result = await getData(headersInput, query);
+    const result = await getData(queryInput, variablesInput, headersInput);
     result && setResult(result);
   };
 
@@ -37,7 +36,7 @@ function EditorBtns() {
         className={cls(btnStyle)}
         title="Copy query"
         onClick={() => {
-          copy(query);
+          copy(queryInput);
           toast.success('Query copied to clipboard');
         }}
       >

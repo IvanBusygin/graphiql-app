@@ -8,8 +8,7 @@ const btnstyle =
   'flex h-[40px] w-[40px] ml-[5px] items-center justify-center rounded-lg hover:bg-[#313949] hover:bg-[#313949] stroke-grayText hover:stroke-white active:ring-2 active:ring-grayText';
 
 function AsideMenu() {
-  const sideMenu = useStore((state: ZState) => state.sideMenu);
-  const toggleSideMenu = useStore((state: ZState) => state.toggleSideMenu);
+  const { sideMenu, toggleSideMenu } = useStore((state: ZState) => state);
 
   const handleClick = (menu: SideMenuOptions) => {
     menu === sideMenu ? toggleSideMenu(SideMenuOptions.hidden) : toggleSideMenu(menu);

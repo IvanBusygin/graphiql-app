@@ -4,11 +4,10 @@ import EditorTools from './EditorTools';
 import cls from 'clsx';
 
 function Editor(): React.ReactElement {
-  const query = useStore((state: ZState) => state.query);
-  const setQuery = useStore((state: ZState) => state.setQuery);
+  const { queryInput, setQueryInput } = useStore((state: ZState) => state);
 
   function handleInput(e: React.FormEvent<HTMLTextAreaElement>) {
-    setQuery(e.currentTarget.value);
+    setQueryInput(e.currentTarget.value);
   }
 
   return (
@@ -26,7 +25,7 @@ function Editor(): React.ReactElement {
           id="Editor"
           cols={30}
           rows={10}
-          value={query}
+          value={queryInput}
           onChange={handleInput}
           spellCheck="false"
         ></textarea>

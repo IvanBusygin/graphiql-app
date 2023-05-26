@@ -17,12 +17,12 @@ export interface ZState {
   editorTools: string;
   toggleSideMenu: (value: SideMenuOptions) => void;
   toggleTools: (value: string) => void;
+  queryInput: string;
   variablesInput: string;
   headersInput: string;
   setVariablesInput: (value: string) => void;
   setHeadersInput: (value: string) => void;
-  query: string;
-  setQuery: (value: string) => void;
+  setQueryInput: (value: string) => void;
   result: Result;
   setResult: (result: Result) => void;
 }
@@ -30,18 +30,20 @@ export interface ZState {
 const useStore = create<ZState>((set) => ({
   sideMenu: SideMenuOptions.hidden,
   editorTools: '',
-  variablesInput: '',
+  variablesInput: `{
+    "name": {"name": "morty"}
+}`,
   headersInput: `{
     "Content-Type": "application/json"
-  }`,
+}`,
   toolsSelected: 'Variables',
-  query: `query
-  {
-    characters(page:1,filter:{name:"summer"}){
-      info{count}
-      results{name}
+  queryInput: `query getByName($name:FilterCharacter ) {
+  characters(filter: $name) {
+    results{
+      name
     }
-  }`,
+  }
+}`,
   result: {
     output: '',
     time: 0,
@@ -70,10 +72,10 @@ const useStore = create<ZState>((set) => ({
       ...state,
       headersInput: headers,
     })),
-  setQuery: (query: string) =>
+  setQueryInput: (queryInput: string) =>
     set((state: ZState) => ({
       ...state,
-      query: query,
+      queryInput: queryInput,
     })),
   setResult: (result: Result) =>
     set((state: ZState) => ({
