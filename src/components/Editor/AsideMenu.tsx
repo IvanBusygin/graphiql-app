@@ -5,7 +5,7 @@ import cls from 'clsx';
 import useStore, { SideMenuOptions, ZState } from '../../store';
 
 const btnstyle =
-  'flex h-[40px] w-[40px] m-[5px] items-center justify-center rounded-lg hover:bg-[#313949] hover:bg-[#313949] stroke-grayText hover:stroke-white';
+  'flex h-[40px] w-[40px] ml-[5px] items-center justify-center rounded-lg hover:bg-[#313949] hover:bg-[#313949] stroke-grayText hover:stroke-white active:ring-2 active:ring-grayText';
 
 function AsideMenu() {
   const sideMenu = useStore((state: ZState) => state.sideMenu);
@@ -20,14 +20,17 @@ function AsideMenu() {
       <div className="buttons flex flex-col justify-between  py-2">
         <div className="top-btns flex flex-col gap-2 xs:min-w-full">
           <button
-            className={cls(`${btnstyle}`)}
+            className={cls(
+              `${btnstyle}`,
+              sideMenu === SideMenuOptions.documentation && 'bg-grayLight',
+            )}
             title="Show documentation"
             onClick={() => handleClick(SideMenuOptions.documentation)}
           >
             <Book />
           </button>
           <button
-            className={cls(`${btnstyle}`)}
+            className={cls(`${btnstyle}`, sideMenu === SideMenuOptions.history && 'bg-grayLight')}
             title="Show history"
             onClick={() => handleClick(SideMenuOptions.history)}
           >
@@ -36,7 +39,7 @@ function AsideMenu() {
         </div>
         <div className="btm-btns flex flex-col">
           <button
-            className={`${btnstyle} fill-grayText hover:fill-white`}
+            className={cls(`${btnstyle}`, 'fill-grayText hover:fill-white')}
             title="Open settings dialog"
           >
             <Settings />

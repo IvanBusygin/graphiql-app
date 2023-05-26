@@ -26,6 +26,7 @@ function EditorBtns() {
         className={cls(
           'm-[5px] flex h-[40px] w-[40px] items-center justify-center rounded-lg',
           'bg-[#2BAB7C] stroke-[#2BAB7C] hover:bg-[#2A9E76]',
+          'active:ring-2 active:ring-grayText',
         )}
         title="Execute query"
         onClick={handleClick}
