@@ -23,7 +23,7 @@ export const ResetPasswordForm = () => {
     try {
       setIsLoading(true);
       await sendPasswordReset(data.email);
-      toast.success(t('msg.reset-password-sent'));
+      toast.success(t('msg.resetPasswordSent'));
     } catch (err) {
       toast.error(t(`error.${err as string}`));
       console.error('error :>> ', err);

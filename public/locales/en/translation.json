@@ -1,7 +1,7 @@
 {
   "test": "Hello world!",
 
-  "not_found": {
+  "notFound": {
     "message": "It looks like you're lost",
     "button": "Go to the homepage"
   },
@@ -12,18 +12,18 @@
   },
 
   "error": {
-    "email-already-in-use": "This email address is already registered in the system.",
-    "invalid-email": "Invalid email address format.",
-    "user-not-found": "The user with this email address was not found in the system.",
-    "wrong-password": "Invalid user password.",
-    "user-token-expired": "User token has expired.",
-    "too-many-requests": "Too many requests. Please try again later.",
-    "user-disabled": "User is disabled in the system.",
+    "emailAlreadyInUse": "This email address is already registered in the system.",
+    "invalidEmail": "Invalid email address format.",
+    "userNotFound": "The user with this email address was not found in the system.",
+    "wrongPassword": "Invalid user password.",
+    "userTokenExpired": "User token has expired.",
+    "tooManyRequests": "Too many requests. Please try again later.",
+    "userDisabled": "User is disabled in the system.",
     "default": "Something went wrong ¯\\_(ツ)_/¯"
   },
 
   "msg": {
-    "reset-password-sent": "Password reset link sent!"
+    "resetPasswordSent": "Password reset link sent!"
   },
 
   "email": {
