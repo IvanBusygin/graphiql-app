@@ -5,7 +5,7 @@
   "toLogIn": "To use GraphiQL you need to log in.",
   "btnToLogIn": "Enter login",
   "toEditor": "Now you can go to the Editor",
-  "btnToEditor": "Редактор GraphiQL",
+  "btnToEditor": "GraphiQL Editor",
 
   "not_found": {
     "message": "It looks like you're lost",
