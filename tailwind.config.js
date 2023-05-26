@@ -43,7 +43,7 @@ export default {
           backgroundColor: '#00000000',
         },
         '.scrollbar::-webkit-scrollbar-button:single-button:vertical:decrement': {
-          heigth: '0px',
+          height: '0px',
           backgroundColor: '#00000000',
         },
       });

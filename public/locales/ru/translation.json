@@ -1,5 +1,5 @@
 {
-  "test": "Привет мир!",
+  "welcome": "Welcome to Rick and Morty GraphiQL API",
   "login": "Войти",
   "register": "Регистрация",
 
