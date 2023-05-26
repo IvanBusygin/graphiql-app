@@ -1,12 +1,16 @@
 import cls from 'clsx';
 import useStore, { ZState } from '../../store';
+import HashLoader from 'react-spinners/HashLoader';
 
 function Results() {
   const result = useStore((state: ZState) => state.result);
 
   return result.isLoading ? (
     <div className="flex h-full w-full items-center justify-center bg-grayLight p-2 pb-0">
-      <p className="text-[50px]">Loading...</p>
+      <HashLoader
+        color="white"
+        size="50px"
+      />
     </div>
   ) : (
     <div
