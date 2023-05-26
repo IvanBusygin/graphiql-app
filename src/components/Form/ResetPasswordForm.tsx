@@ -23,7 +23,7 @@ export const ResetPasswordForm = () => {
     try {
       setIsLoading(true);
       await sendPasswordReset(data.email);
-      toast.success(t('msg.reset-password-sent'));
+      toast.success(t('msg.resetPasswordSent'));
     } catch (err) {
       toast.error(t(`error.${err as string}`));
       console.error('error :>> ', err);
@@ -39,22 +39,23 @@ export const ResetPasswordForm = () => {
           onSubmit={handleSubmit(onSubmit)}
           className="flex w-full flex-col"
         >
+          <p className="mb-6 text-center">{t('resetPage.resetMsg')} </p>
           <EmailInput
             register={register}
             errors={errors}
           />
           <ActionBtn
-            btnText="Send reset link"
+            btnText={t('resetPage.sendLink')}
             isLoading={isLoading}
           />
         </form>
-        <p className="text-gray-400">Already have an account?</p>
+        <p className="text-gray-400">{t('registerPage.haveAccount')}</p>
         <Link
           to="/login"
           className="text-blue-500 hover:text-blue-700"
           tabIndex={5}
         >
-          Login
+          {t('registerPage.login')}
         </Link>
       </div>
     </section>
