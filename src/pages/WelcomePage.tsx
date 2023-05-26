@@ -10,7 +10,7 @@ export function WelcomePage() {
   const { t } = useTranslation();
 
   const btnStyles =
-    'm-2 flex h-20 w-44 items-center justify-center rounded-lg bg-[#2A9E76] hover:bg-[#2BAB7C]';
+    'm-2 flex h-20 w-48 items-center justify-center rounded-lg bg-[#2A9E76] hover:bg-[#2BAB7C]';
 
   return (
     <div className="flex h-screen w-full flex-col items-center justify-center bg-grayLight">
@@ -23,26 +23,26 @@ export function WelcomePage() {
         </>
       ) : !user ? (
         <p className="flex flex-col items-center justify-center text-white">
-          <p className="m-2">To use GraphiQL you need to log in.</p>
+          <p className="m-2"> {t('toLogIn')} </p>
           <Link
             className={btnStyles}
             to="/login"
             title="Go to the login page"
           >
             <Key />
-            <p className="ml-2 ">Enter login</p>
+            <p className="ml-2 "> {t('btnToLogIn')} </p>
           </Link>
         </p>
       ) : (
         <p className="flex flex-col items-center justify-center text-white">
-          <p className="m-2">Now you can go to the Editor</p>
+          <p className="m-2"> {t('toEditor')} </p>
           <Link
             className={btnStyles}
             to="/main"
             title="To GraphiQL API Editor"
           >
             <Beaker />
-            <p className="ml-2 ">GraphiQL Editor</p>
+            <p className="ml-2 "> {t('btnToEditor')} </p>
           </Link>
         </p>
       )}

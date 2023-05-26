@@ -2,6 +2,10 @@
   "welcome": "Welcome to Rick and Morty GraphiQL API",
   "login": "Log in",
   "register": "Register",
+  "toLogIn": "To use GraphiQL you need to log in.",
+  "btnToLogIn": "Enter login",
+  "toEditor": "Now you can go to the Editor",
+  "btnToEditor": "Редактор GraphiQL",
 
   "not_found": {
     "message": "It looks like you're lost",

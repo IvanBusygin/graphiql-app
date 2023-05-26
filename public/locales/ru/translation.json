@@ -2,6 +2,10 @@
   "welcome": "Добро пожаловать в Rick And Morty Graphql API",
   "login": "Войти",
   "register": "Регистрация",
+  "toLogIn": "Чтобы использовать Graphql, вам необходимо войти в систему.",
+  "btnToLogIn": "Введите логин",
+  "toEditor": "Теперь вы можете перейти в редактор",
+  "btnToEditor": "Введите логин",
 
   "not_found": {
     "message": "Похоже, Вы Потерялись",
