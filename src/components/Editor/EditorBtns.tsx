@@ -1,10 +1,10 @@
 import { ReactComponent as Copy } from '../../assets/Buttons/Copy.svg';
 import { ReactComponent as Execute } from '../../assets/Buttons/Execute.svg';
-import { ReactComponent as Merge } from '../../assets/Buttons/Merge.svg';
-import { ReactComponent as Prettify } from '../../assets/Buttons/Prettify.svg';
 import getData from '../../utils/api/getData';
 import useStore, { ZState } from '../../store';
 import cls from 'clsx';
+import { toast } from 'react-toastify';
+import copy from 'copy-to-clipboard';
 
 const btnStyle =
   'm-[5px] flex h-[40px] w-[40px] items-center justify-center rounded-lg stroke-grayText hover:bg-[#313949] hover:stroke-white';
@@ -34,19 +34,11 @@ function EditorBtns() {
       </button>
       <button
         className={cls(btnStyle)}
-        title="Prettify query"
-      >
-        <Prettify />
-      </button>
-      <button
-        className={cls(btnStyle)}
-        title="Merge fragments into query"
-      >
-        <Merge />
-      </button>
-      <button
-        className={cls(btnStyle)}
         title="Copy query"
+        onClick={() => {
+          copy(query);
+          toast.success('Query copied to clipboard');
+        }}
       >
         <Copy />
       </button>

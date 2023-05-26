@@ -1,7 +1,5 @@
 import { ReactComponent as Book } from '../../assets/Buttons/Book.svg';
 import { ReactComponent as History } from '../../assets/Buttons/History.svg';
-import { ReactComponent as Refresh } from '../../assets/Buttons/Refresh.svg';
-import { ReactComponent as Shortkeys } from '../../assets/Buttons/Shortkeys.svg';
 import { ReactComponent as Settings } from '../../assets/Buttons/Settings.svg';
 import cls from 'clsx';
 import useStore, { SideMenuOptions, ZState } from '../../store';
@@ -20,7 +18,7 @@ function AsideMenu() {
   return (
     <aside className="row-span-2 flex h-full bg-grayDark">
       <div className="buttons flex flex-col justify-between  py-2">
-        <div className="top-btns flex flex-col gap-2  xs:min-w-full">
+        <div className="top-btns flex flex-col gap-2 xs:min-w-full">
           <button
             className={cls(`${btnstyle}`)}
             title="Show documentation"
@@ -36,21 +34,7 @@ function AsideMenu() {
             <History />
           </button>
         </div>
-        <div className="btm-btns flex flex-col gap-2 ">
-          <button
-            className={cls(`${btnstyle}`)}
-            title="Re-fetch schema"
-          >
-            <div className="btm-btns flex flex-col gap-2 ">
-              <Refresh />
-            </div>
-          </button>
-          <button
-            className={cls(`${btnstyle}`)}
-            title="Open shortkeys dialog"
-          >
-            <Shortkeys />
-          </button>
+        <div className="btm-btns flex flex-col">
           <button
             className={`${btnstyle} fill-grayText hover:fill-white`}
             title="Open settings dialog"
