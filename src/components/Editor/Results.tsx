@@ -28,11 +28,11 @@ function Results() {
           <div className="flex h-full w-full items-center  px-4">
             <span className="mr-2">ping:</span>
             <p
-              className={`self-center rounded px-2 py-1 ${
-                result.time > 250 ? 'bg-red-500' : 'bg-green-500'
+              className={`self-center rounded px-2 py-1 text-grayDark ${
+                result.time > 250 ? 'bg-red-400' : 'bg-green-400 '
               }`}
             >
-              {result.time}
+              {result.time}ms
             </p>
           </div>
         </div>

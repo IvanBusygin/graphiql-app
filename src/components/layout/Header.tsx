@@ -40,13 +40,11 @@ export function Header() {
       <div className="ml-4 flex items-center justify-start gap-4">
         <h1
           className={cls(
-            'select-none text-xl font-bold text-blue-900 transition-all duration-700',
-            {
-              'text-blue-100 ': isSticky,
-            },
+            'select-none text-xl font-bold  transition-all duration-700',
+            isSticky ? 'text-white' : 'text-blue-900 ',
           )}
         >
-          <Link to="/">GraphiQL-APP</Link>{' '}
+          <Link to="/">GraphiQL-APP</Link>
         </h1>
         <LanguageSwitch />
       </div>
