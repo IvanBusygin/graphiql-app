@@ -14,7 +14,7 @@ export function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 50) {
+      if (window.scrollY > 0) {
         setIsSticky(true);
       } else {
         setIsSticky(false);
@@ -33,12 +33,19 @@ export function Header() {
       className={cls(
         'z-40 flex h-14 w-full justify-between max550:h-[100px] max550:flex-col max550:items-center',
         { 'sticky top-0 bg-darkRed p-0 text-white ': isSticky },
-        { 'bg-transparent p-3': !isSticky },
+        { 'bg-white p-3': !isSticky },
         'transition-all duration-700',
       )}
     >
       <div className="ml-4 flex items-center justify-start gap-4">
-        <h1 className="select-none text-xl font-bold text-blue-900">
+        <h1
+          className={cls(
+            'select-none text-xl font-bold text-blue-900 transition-all duration-700',
+            {
+              'text-blue-100 ': isSticky,
+            },
+          )}
+        >
           <Link to="/">GraphiQL-APP</Link>{' '}
         </h1>
         <LanguageSwitch />
