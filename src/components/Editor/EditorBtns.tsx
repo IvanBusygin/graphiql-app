@@ -37,7 +37,7 @@ function EditorBtns() {
         title="Copy query"
         onClick={() => {
           copy(queryInput);
-          toast.success('Query copied to clipboard');
+          toast.success('Query copied to clipboard', { autoClose: 3000 });
         }}
       >
         <Copy />
