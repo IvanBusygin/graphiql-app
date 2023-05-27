@@ -4,6 +4,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { useTranslation } from 'react-i18next';
 import { ReactComponent as Beaker } from '../assets/Buttons/Beaker.svg';
 import { ReactComponent as Key } from '../assets/Buttons/Key.svg';
+import PulseLoader from 'react-spinners/PulseLoader';
 
 export function WelcomePage() {
   const [user, loading] = useAuthState(auth);
@@ -18,9 +19,9 @@ export function WelcomePage() {
         {t('welcome')}
       </h1>
       {loading ? (
-        <>
-          <p>loading...</p>
-        </>
+        <div className="flex h-[124px] items-center">
+          <PulseLoader color="white" />
+        </div>
       ) : !user ? (
         <div className="flex flex-col items-center justify-center text-white">
           <p className="m-2"> {t('toLogIn')} </p>
@@ -34,7 +35,7 @@ export function WelcomePage() {
           </Link>
         </div>
       ) : (
-        <p className="flex flex-col items-center justify-center text-white">
+        <div className="flex flex-col items-center justify-center text-white">
           <p className="m-2"> {t('toEditor')} </p>
           <Link
             className={btnStyles}
@@ -44,7 +45,7 @@ export function WelcomePage() {
             <Beaker />
             <p className="ml-2 "> {t('btnToEditor')} </p>
           </Link>
-        </p>
+        </div>
       )}
       <div className="mt-20 flex w-full flex-col items-center gap-20">
         <div className="flex w-[75%] max-w-[1000px] flex-wrap justify-center gap-4 text-center">

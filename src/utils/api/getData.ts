@@ -1,25 +1,42 @@
 import { toast } from 'react-toastify';
 
-const getData = async (headersInput: string, query: string) => {
+const getData = async (queryInput: string, variablesInput: string, headersInput: string) => {
   const timeStart = Date.now();
-  let headers = {};
+  let headers;
+  let variables;
+
   try {
-    headers = JSON.parse(headersInput);
+    variablesInput.trim() !== '' ? (variables = JSON.parse(variablesInput)) : '';
   } catch (error) {
     if (error instanceof SyntaxError) {
-      toast.error(error.name);
+      toast.error('Variables are invalid JSON');
       return {
-        output: JSON.stringify({ error: { type: error.name, message: error.message } }, null, 4),
+        output: `Variables are invalid JSON: ${error.message}`,
         time: 0,
         isLoading: false,
       };
     }
   }
+
+  try {
+    headers = JSON.parse(headersInput);
+  } catch (error) {
+    if (error instanceof SyntaxError) {
+      toast.error('Headers are invalid JSON');
+      return {
+        output: `Headers are invalid JSON: ${error.message}`,
+        time: 0,
+        isLoading: false,
+      };
+    }
+  }
+
   return await fetch('https://rickandmortyapi.com/graphql', {
     method: 'POST',
     headers: headers,
     body: JSON.stringify({
-      query,
+      query: queryInput,
+      variables: variables,
     }),
   })
     .then((res) => res.json())

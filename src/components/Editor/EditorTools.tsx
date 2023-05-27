@@ -3,12 +3,15 @@ import { ReactComponent as ArrowShow } from '../../assets/Buttons/ArrowShow.svg'
 import useStore, { ZState } from '../../store';
 
 function EditorTools() {
-  const editorTools = useStore((state: ZState) => state.editorTools);
-  const toggleTools = useStore((state: ZState) => state.toggleTools);
-  const variablesInput = useStore((state: ZState) => state.variablesInput);
-  const headersInput = useStore((state: ZState) => state.headersInput);
-  const setVariablesInput = useStore((state: ZState) => state.setVariablesInput);
-  const setHeadersInput = useStore((state: ZState) => state.setHeadersInput);
+  const {
+    editorTools,
+    toggleTools,
+    variablesInput,
+    headersInput,
+    setVariablesInput,
+    setHeadersInput,
+  } = useStore((state: ZState) => state);
+
   const handleClick = (tools: string) => {
     tools === editorTools ? toggleTools('') : toggleTools(tools);
   };

@@ -9,7 +9,7 @@ function LayoutMain() {
     <div className="flex h-screen flex-col">
       <Header />
 
-      <div className="flex-grow bg-blue-300">
+      <div className="flex-grow bg-grayLight">
         <ToastContainer
           position="top-center"
           autoClose={10000}
