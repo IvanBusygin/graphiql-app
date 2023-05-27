@@ -26,19 +26,19 @@ const handleError = (err: FirebaseError) => {
   const result = () => {
     switch (errorCode) {
       case 'email-already-in-use':
-        return 'email-already-in-use';
+        return 'emailAlreadyInUse';
       case 'invalid-email':
-        return 'invalid-email';
+        return 'invalidEmail';
       case 'user-not-found':
-        return 'user-not-found';
+        return 'userNotFound';
       case 'wrong-password':
-        return 'wrong-password';
+        return 'wrongPassword';
       case 'user-token-expired':
-        return 'user-token-expired';
+        return 'userTokenExpired';
       case 'too-many-requests':
-        return 'too-many-requests';
+        return 'tooManyRequests';
       case 'user-disabled':
-        return 'user-disabled';
+        return 'userDisabled';
       default:
         return 'default';
     }
