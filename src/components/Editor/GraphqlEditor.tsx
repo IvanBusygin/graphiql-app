@@ -13,7 +13,7 @@ function GraphqlEditor(): React.ReactElement {
     <main
       className={clsx(
         'grid h-full w-full min-w-[270px] grid-rows-1 bg-grayDark text-grayText',
-        sideMenu ? 'grid-cols-[50px_1fr_2fr]' : 'grid-cols-[50px_1fr]',
+        sideMenu ? 'grid-cols-[50px_minmax(270px,_320px)_2fr]' : 'grid-cols-[50px_1fr]',
         sideMenu ? 'xs:grid-cols-[50px_1fr]' : 'xs:grid-cols-[50px_1fr]',
       )}
     >

@@ -20,7 +20,7 @@ function LayoutMain() {
           pauseOnFocusLoss
           draggable
           pauseOnHover
-          theme="light"
+          theme="dark"
           className="z-50 mt-12"
         />
         <Outlet />

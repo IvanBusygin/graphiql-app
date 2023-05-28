@@ -10,6 +10,8 @@ export default {
         grayDark: '#212A3B',
         grayLight: '#313949',
         grayText: '#CED0D3',
+        greenLight: '#2BAB7C',
+        greenDark: '#228866',
       },
       screens: {
         max550: { max: '550px' },

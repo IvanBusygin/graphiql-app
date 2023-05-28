@@ -32,7 +32,7 @@ export const LoginForm = () => {
   };
   return (
     <section className="flex w-full items-center justify-center p-8">
-      <div className="border-1 relative flex w-full max-w-xs flex-col items-center rounded-xl border-gray-100 bg-gray-50 p-8 drop-shadow-lg">
+      <div className="relative flex w-full max-w-xs flex-col items-center rounded-xl bg-grayDark p-8 text-white drop-shadow-lg">
         <CloseBtn />
         <form
           onSubmit={handleSubmit(onSubmit)}
@@ -54,11 +54,11 @@ export const LoginForm = () => {
             isLoading={isLoading}
           />
         </form>
-        <p className="text-gray-400">{t('loginPage.noAccount')}</p>
+        <p className="text-grayText">{t('loginPage.noAccount')}</p>
         <Link
           tabIndex={5}
           to="/register"
-          className="text-blue-500 hover:text-blue-700"
+          className="text-greenLight hover:text-greenDark"
         >
           {t('loginPage.register')}
         </Link>

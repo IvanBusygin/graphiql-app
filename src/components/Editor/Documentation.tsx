@@ -32,14 +32,9 @@ const Documentation: React.FC = () => {
   if (loading)
     return (
       <GridLoader
-        color="#36d7b7"
         loading
-        cssOverride={{
-          position: 'relative',
-          top: '90%',
-          left: '50%',
-          transform: 'translate(-90%, -50%)',
-        }}
+        color="#2BAB7C"
+        className="relative m-auto"
       />
     );
   if (error) return <p>Error: {error.message}</p>;
@@ -51,7 +46,7 @@ const Documentation: React.FC = () => {
   const fields = queryType.getFields();
 
   return (
-    <div className="max-w-1/3 p-4">
+    <div className="h-full p-4">
       <h2 className="mb-4 text-2xl font-bold">Docs</h2>
       <h3 className="mb-2 text-xl font-semibold">Query</h3>
       {selectedType ? (

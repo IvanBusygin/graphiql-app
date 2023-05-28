@@ -36,7 +36,7 @@ const PasswordInput = ({ register, errors, recoverLink = false }: PasswordInputP
         {recoverLink && (
           <Link
             to="/reset"
-            className="justify-self-center text-blue-500 hover:text-blue-700"
+            className="justify-self-center text-greenLight hover:text-greenDark"
             tabIndex={4}
           >
             {t(`password.forgot`)}
@@ -48,10 +48,10 @@ const PasswordInput = ({ register, errors, recoverLink = false }: PasswordInputP
         type="password"
         tabIndex={2}
         placeholder={t(`password.placeholder`) || ''}
-        className={`w-full rounded-md p-2 placeholder:text-gray-400 focus:outline-none focus:ring-2 ${
+        className={`w-full rounded-md bg-grayLight p-2 placeholder:text-gray-400 focus:outline-none focus:ring-2 ${
           errors.password
             ? 'outline outline-1 outline-red-400 focus:ring-red-400'
-            : 'outline outline-1 outline-gray-300 focus:ring-blue-200'
+            : 'outline outline-1 outline-grayLight focus:ring-greenDark'
         } hover:before:content-[attr(title)] focus:outline-none focus:ring-2`}
         {...register('password', {
           validate: validatePassword,

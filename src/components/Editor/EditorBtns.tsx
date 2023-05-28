@@ -5,11 +5,13 @@ import useStore, { ZState } from '../../store';
 import cls from 'clsx';
 import { toast } from 'react-toastify';
 import copy from 'copy-to-clipboard';
+import { useTranslation } from 'react-i18next';
 
 const btnStyle =
   'm-[5px] flex h-[40px] w-[40px] items-center justify-center rounded-lg stroke-grayText hover:bg-[#313949] hover:stroke-white';
 
 function EditorBtns() {
+  const { t } = useTranslation();
   const { headersInput, variablesInput, queryInput, setResult } = useStore(
     (state: ZState) => state,
   );
@@ -24,7 +26,7 @@ function EditorBtns() {
       <button
         className={cls(
           'm-[5px] flex h-[40px] w-[40px] items-center justify-center rounded-lg',
-          'bg-[#2BAB7C] stroke-[#2BAB7C] hover:bg-[#2A9E76]',
+          'bg-greenLight stroke-greenLight hover:bg-greenDark',
           'active:ring-2 active:ring-grayText',
         )}
         title="Execute query"
@@ -37,7 +39,7 @@ function EditorBtns() {
         title="Copy query"
         onClick={() => {
           copy(queryInput);
-          toast.success('Query copied to clipboard', { autoClose: 3000 });
+          toast.success(t('msg.queryCoppied'), { autoClose: 3000 });
         }}
       >
         <Copy />
