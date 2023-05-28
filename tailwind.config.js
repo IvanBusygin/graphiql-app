@@ -29,6 +29,7 @@ export default {
       addBase({
         '.scrollbar': {
           overflowY: 'auto',
+          overflowX: 'hidden',
           scrollbarColor: '#ff0000',
           scrollbarWidth: 'thin',
         },
