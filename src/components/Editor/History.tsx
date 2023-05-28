@@ -49,7 +49,7 @@ function History() {
               <li
                 key={index}
                 onClick={() => handleClick(item)}
-                className="mb-4 cursor-pointer bg-grayLight py-2"
+                className="mb-4 cursor-pointer bg-grayLight p-2"
                 title={item.query}
               >
                 {index + 1 + '. '}
