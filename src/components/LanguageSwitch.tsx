@@ -38,7 +38,7 @@ export default function LanguageSwitch() {
 
   return (
     <select
-      className="cursor-pointer bg-transparent py-2 text-center outline-none hover:bg-blue-100"
+      className="cursor-pointer bg-transparent py-2 text-center outline-none hover:bg-greenLight"
       onChange={handleChangeLocale}
       value={language}
     >

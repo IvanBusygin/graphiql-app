@@ -16,7 +16,7 @@ const EmailInput = ({ register, errors }: EmailInputProps) => {
     return true;
   };
   return (
-    <div className="relative mb-6 flex w-full flex-col">
+    <div className="relative mb-6 flex w-full flex-col ">
       <label
         htmlFor="email"
         className="mb-1"
@@ -28,10 +28,10 @@ const EmailInput = ({ register, errors }: EmailInputProps) => {
         type="text"
         tabIndex={1}
         placeholder={t(`email.placeholder`) || ''}
-        className={`w-full rounded-md p-2 placeholder:text-gray-400 focus:outline-none focus:ring-2 ${
+        className={`w-full rounded-md bg-grayLight p-2 placeholder:text-gray-400 focus:outline-none focus:ring-2 ${
           errors.email
             ? 'outline outline-1 outline-red-400 focus:ring-red-400'
-            : 'outline outline-1 outline-gray-300 focus:ring-blue-200'
+            : 'outline outline-1 outline-grayLight focus:ring-greenDark'
         } hover:before:content-[attr(title)]`}
         {...register('email', {
           validate: validateEmail,

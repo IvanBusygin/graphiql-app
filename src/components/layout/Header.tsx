@@ -31,17 +31,17 @@ export function Header() {
   return (
     <header
       className={cls(
-        'z-40 flex h-14 w-full justify-between max550:h-[100px] max550:flex-col max550:items-center',
-        { 'sticky top-0 bg-darkRed p-0 text-white ': isSticky },
-        { 'bg-white p-3': !isSticky },
-        'transition-all duration-700',
+        'z-40 flex w-full justify-between text-white max550:flex-col max550:items-center',
+        { 'sticky top-0 bg-greenDark p-0 ': isSticky },
+        { 'bg-grayDark p-3': !isSticky },
+        'transition-all duration-500',
       )}
     >
       <div className="ml-4 flex items-center justify-start gap-4">
         <h1
           className={cls(
             'select-none text-xl font-bold  transition-all duration-700',
-            isSticky ? 'text-white' : 'text-blue-900 ',
+            isSticky ? 'text-white' : 'text-greenLight ',
           )}
         >
           <Link to="/">GraphiQL-APP</Link>
@@ -53,13 +53,7 @@ export function Header() {
           ''
         ) : user ? (
           <>
-            <div
-              className={cls(
-                'flex items-center justify-end gap-4 leading-3',
-                { 'text-white ': isSticky },
-                { 'text-black': !isSticky },
-              )}
-            >
+            <div className={cls('flex items-center justify-end gap-4 leading-3 text-white')}>
               {user.email}
             </div>
             <SignoutBtn />
@@ -68,13 +62,13 @@ export function Header() {
           <>
             <Link
               to="/register"
-              className="hover: flex cursor-pointer p-2 hover:bg-blue-100"
+              className="hover: flex cursor-pointer p-2 hover:bg-greenLight"
             >
               {t('header.register')}
             </Link>
             <Link
               to="/login"
-              className="hover: flex cursor-pointer p-2 hover:bg-blue-100"
+              className="hover: flex cursor-pointer p-2 hover:bg-greenLight"
             >
               {t('header.login')}
             </Link>

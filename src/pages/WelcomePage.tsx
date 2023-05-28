@@ -61,7 +61,7 @@ export function WelcomePage() {
           <div className="flex flex-wrap justify-center gap-10 rounded-xl bg-grayDark p-10">
             <Link
               to="https://github.com/IvanBusygin"
-              className="group relative flex h-[250px] w-[250px] shrink-0 overflow-hidden rounded-full shadow-2xl ring-2 ring-darkRed transition-all duration-500 hover:ring-8"
+              className="group relative flex h-[250px] w-[250px] shrink-0 overflow-hidden rounded-full shadow-2xl ring-2 ring-greenDark transition-all duration-500 hover:ring-8"
             >
               <img
                 src="https://avatars.githubusercontent.com/u/88594437?v=4"
@@ -74,7 +74,7 @@ export function WelcomePage() {
             </Link>
             <Link
               to="https://github.com/BesoBerdzenishvili"
-              className="group relative flex h-[250px] w-[250px] shrink-0 overflow-hidden rounded-full shadow-2xl ring-2 ring-darkRed transition-all duration-500 hover:ring-8"
+              className="group relative flex h-[250px] w-[250px] shrink-0 overflow-hidden rounded-full shadow-2xl ring-2 ring-greenDark transition-all duration-500 hover:ring-8"
             >
               <img
                 src="https://avatars.githubusercontent.com/u/76405148?v=4"
@@ -87,7 +87,7 @@ export function WelcomePage() {
             </Link>
             <Link
               to="https://github.com/rasosha"
-              className="group relative flex h-[250px] w-[250px] shrink-0 overflow-hidden rounded-full shadow-2xl ring-2 ring-darkRed transition-all duration-500 hover:ring-8"
+              className="group relative flex h-[250px] w-[250px] shrink-0 overflow-hidden rounded-full shadow-2xl ring-2 ring-greenDark transition-all duration-500 hover:ring-8"
             >
               <img
                 src="https://media.licdn.com/dms/image/D5603AQH3WcAMmUBIew/profile-displayphoto-shrink_800_800/0/1683787710715?e=1690416000&v=beta&t=lCDSEFVVFfofzcpsH6bnCuXqW7opWYj9WDOkw73rNco"

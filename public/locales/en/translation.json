@@ -34,7 +34,8 @@
   },
 
   "msg": {
-    "resetPasswordSent": "Password reset link sent!"
+    "resetPasswordSent": "Password reset link sent!",
+    "queryCoppied": "Query copied to clipboard!"
   },
 
   "email": {
@@ -71,5 +72,13 @@
   "resetPage": {
     "resetMsg": "A password reset link will be sent to your email address",
     "sendLink": "Send reset link"
+  },
+
+  "settings": {
+    "msg1": "There is no settings",
+    "msg2": "Stop it!",
+    "msg3": "Seriously, stop!",
+    "msg4": "You can break this button!",
+    "msg5": "Congratulations! You won! 🐣"
   }
 }
