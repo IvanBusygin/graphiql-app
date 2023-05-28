@@ -39,12 +39,18 @@ const getData = async (queryInput: string, variablesInput: string, headersInput:
       variables: variables,
     }),
   })
-    .then((res) => res.json())
+    .then(async (res) => {
+      return {
+        result: await res.json(),
+        status: res.status,
+      };
+    })
     .then((res) => {
       const result = {
-        output: JSON.stringify(res, null, 2),
+        output: JSON.stringify(res.result, null, 2),
         time: Date.now() - timeStart,
         isLoading: false,
+        status: res.status,
       };
       return result;
     });

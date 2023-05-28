@@ -6,10 +6,11 @@ export enum SideMenuOptions {
   hidden = '',
 }
 
-interface Result {
+export interface Result {
   output: string;
   time: number;
   isLoading?: boolean;
+  status?: number;
 }
 
 export interface ZState {
@@ -37,7 +38,7 @@ const useStore = create<ZState>((set) => ({
     "Content-Type": "application/json"
 }`,
   toolsSelected: 'Variables',
-  queryInput: `query getByName($name:FilterCharacter ) {
+  queryInput: `query getByName ($name:FilterCharacter) {
   characters(filter: $name) {
     results{
       name

@@ -1,10 +1,11 @@
 import { ReactComponent as Copy } from '../../assets/Buttons/Copy.svg';
 import { ReactComponent as Execute } from '../../assets/Buttons/Execute.svg';
 import getData from '../../utils/api/getData';
-import useStore, { ZState } from '../../store';
+import useStore, { Result, ZState } from '../../store';
 import cls from 'clsx';
 import { toast } from 'react-toastify';
 import copy from 'copy-to-clipboard';
+import addHistory from '../../utils/addHistory';
 import { useTranslation } from 'react-i18next';
 
 const btnStyle =
@@ -17,8 +18,9 @@ function EditorBtns() {
   );
   const handleClick = async () => {
     setResult({ output: '', time: 0, isLoading: true });
-    const result = await getData(queryInput, variablesInput, headersInput);
+    const result: Result = await getData(queryInput, variablesInput, headersInput);
     result && setResult(result);
+    result.status === 200 && addHistory(queryInput, variablesInput, headersInput);
   };
 
   return (
