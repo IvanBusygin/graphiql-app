@@ -5,7 +5,7 @@ import { ToastContainer } from 'react-toastify';
 
 function LayoutMain() {
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex h-screen flex-col max550:h-full">
       <Header />
 
       <div className="flex-grow bg-grayLight">
