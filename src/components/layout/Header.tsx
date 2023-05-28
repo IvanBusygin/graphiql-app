@@ -31,7 +31,7 @@ export function Header() {
   return (
     <header
       className={cls(
-        'z-40 flex h-14 w-full justify-between text-white max550:h-[100px] max550:flex-col max550:items-center',
+        'z-40 flex w-full justify-between text-white max550:flex-col max550:items-center',
         { 'sticky top-0 bg-greenDark p-0 ': isSticky },
         { 'bg-grayDark p-3': !isSticky },
         'transition-all duration-500',
