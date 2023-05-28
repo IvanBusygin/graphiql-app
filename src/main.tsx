@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import { createRoot } from 'react-dom/client';
 import '../i18n';
 import './index.css';
@@ -8,9 +8,7 @@ import ErrorBoundary from './components/ErrorBoundary.tsx';
 createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <ErrorBoundary>
-      <Suspense fallback={<div>Loading...</div>}>
-        <App />
-      </Suspense>
+      <App />
     </ErrorBoundary>
   </React.StrictMode>,
 );

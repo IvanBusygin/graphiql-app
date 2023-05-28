@@ -1,10 +1,12 @@
+import { lazy, Suspense } from 'react';
 import Editor from './Editor';
 import Results from './Results';
 import AsideMenu from './AsideMenu';
-import Documentation from './Documentation';
+const Documentation = lazy(() => import('./Documentation'));
 import useStore, { SideMenuOptions, ZState } from '../../store';
 import clsx from 'clsx';
 import History from './History';
+import { GridLoader } from 'react-spinners';
 
 function GraphqlEditor(): React.ReactElement {
   const sideMenu = useStore((state: ZState) => state.sideMenu);
@@ -18,7 +20,19 @@ function GraphqlEditor(): React.ReactElement {
       )}
     >
       <AsideMenu />
-      {sideMenu === SideMenuOptions.documentation && <Documentation />}
+      {sideMenu === SideMenuOptions.documentation && (
+        <Suspense
+          fallback={
+            <GridLoader
+              loading
+              color="#2BAB7C"
+              className="relative m-auto"
+            />
+          }
+        >
+          <Documentation />
+        </Suspense>
+      )}
       {sideMenu === SideMenuOptions.history && <History />}
       <div
         className={clsx(
