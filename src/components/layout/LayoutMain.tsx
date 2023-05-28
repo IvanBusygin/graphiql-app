@@ -5,10 +5,10 @@ import { ToastContainer } from 'react-toastify';
 
 function LayoutMain() {
   return (
-    <div className="flex h-screen flex-col max550:h-full">
+    <div className="flex min-h-screen flex-col">
       <Header />
 
-      <div className="flex-grow bg-grayLight">
+      <div className="flex grow flex-col bg-grayLight">
         <ToastContainer
           position="top-center"
           autoClose={10000}
