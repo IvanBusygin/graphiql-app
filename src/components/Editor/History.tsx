@@ -53,7 +53,7 @@ function History() {
                 title={item.query}
               >
                 {index + 1 + '. '}
-                <span>{item.query.split('{')[0].split('(')[0]}</span>
+                <span className="pl-2">{item.query.split('{')[0].split('(')[0]}</span>
               </li>
             ))}
         </ul>
