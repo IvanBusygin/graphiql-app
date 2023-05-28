@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.radial-blue {
+  background: radial-gradient(lightyellow, skyblue);
+}
+#root {
+  --toastify-color-dark: #313949;
+  --toastify-toast-background: #fff;
+  --toastify-icon-color-success: #2bab7c;
+  --toastify-color-progress-dark: #2bab7c;
+  --toastify-color-progress-success: #2bab7c;
+}
+.Toastify__toast-theme--dark {
+  border: 1px solid #212a3b80;
+  filter: drop-shadow(0px 0px 15px #212a3b);
+}

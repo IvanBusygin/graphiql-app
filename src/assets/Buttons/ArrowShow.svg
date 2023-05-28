@@ -1,0 +1,11 @@
+<svg 
+  height="20px" 
+  viewBox="-2 -2 15 15" 
+  fill="none" 
+  xmlns="http://www.w3.org/2000/svg" 
+  class="graphiql-chevron-icon" 
+  aria-hidden="true"
+  stroke="currentColor" 
+  stroke-width="1">
+  <path d="M13 8L7 2L1 8" ></path>
+</svg>

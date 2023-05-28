@@ -1,0 +1,84 @@
+{
+  "welcome": "Welcome to Rick and Morty GraphiQL API",
+  "login": "Log in",
+  "register": "Register",
+  "toLogIn": "To use GraphiQL you need to log in.",
+  "btnToLogIn": "Enter login",
+  "toEditor": "Now you can go to the Editor",
+  "btnToEditor": "GraphiQL Editor",
+  "aboutProjectTitle": "About the project",
+  "aboutProjectText": "GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data. GraphQL provides a complete and understandable description of the data in your API, gives clients the power to ask for exactly what they need and nothing more, makes it easier to evolve APIs over time, and enables powerful developer tools. GraphQL Playground ships with basic features such as syntax highlighting, intelligent type ahead of fields, real-time error highlighting and reporting for queries and variables, documentation explorer, search, markdown support, and so much more.",
+  "aboutRSSchoolTitle": "RS School React Course",
+  "aboutRSSchoolText": "The RS School is working by the principle of 'Pay it forward.' Members of our community share their knowledge and check students' tasks for free. And we hope our students will continue this work as our mentors in the future. Everyone can study at RS School, regardless of age, professional employment, or place of residence. However, you should have sufficient base knowledge before the program begins.",
+  "aboutUs": "Our team",
+
+  "notFound": {
+    "message": "It looks like you're lost",
+    "button": "Go to the homepage"
+  },
+
+  "header": {
+    "login": "Log in",
+    "register": "Register"
+  },
+
+  "error": {
+    "emailAlreadyInUse": "This email address is already registered in the system.",
+    "invalidEmail": "Invalid email address format.",
+    "userNotFound": "The user with this email address was not found in the system.",
+    "wrongPassword": "Invalid user password.",
+    "userTokenExpired": "User token has expired.",
+    "tooManyRequests": "Too many requests. Please try again later.",
+    "userDisabled": "User is disabled in the system.",
+    "default": "Something went wrong ¯\\_(ツ)_/¯"
+  },
+
+  "msg": {
+    "resetPasswordSent": "Password reset link sent!",
+    "queryCoppied": "Query copied to clipboard!"
+  },
+
+  "email": {
+    "placeholder": "enter your email",
+    "label": "Email",
+    "empty": "Please enter your email",
+    "short": "Email is too short",
+    "invalid": "Invalid email"
+  },
+
+  "password": {
+    "placeholder": "enter your password",
+    "label": "Password",
+    "forgot": "Forgot?",
+    "empty": "Please enter your password",
+    "short": "Password is too short",
+    "letter": "Add at least one letter",
+    "digit": "Add at least one digit",
+    "special": "Add at least one special character"
+  },
+
+  "loginPage": {
+    "login": "Log in",
+    "noAccount": "Don't have account?",
+    "register": "Register now"
+  },
+
+  "registerPage": {
+    "register": "Create account",
+    "haveAccount": "Already have an account?",
+    "login": "Enter site"
+  },
+
+  "resetPage": {
+    "resetMsg": "A password reset link will be sent to your email address",
+    "sendLink": "Send reset link"
+  },
+
+  "settings": {
+    "msg1": "There is no settings",
+    "msg2": "Stop it!",
+    "msg3": "Seriously, stop!",
+    "msg4": "You can break this button!",
+    "msg5": "Congratulations! You won! 🐣"
+  }
+}
